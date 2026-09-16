@@ -1,0 +1,60 @@
+Mercury - Ascendant|conjunction|Y|Seek or dispense information. You express yourself with immediacy -- you may need to. A busy phone and many letters may require your immediate attention.
+Mercury - Sun|conjunction|Y|Your mind is clear and sharp. Initiate conversation and pursue new interests. Remember to listen as much as you talk.
+Mercury - Moon|conjunction|Y|Examine your emotions, but leave decisions for later. Speak with trusted advisors about personal concerns. Be logical in all communication.
+Mercury - Mercury|conjunction|Y|The pattern of day-to-day activity quickens. Dispense with details such as accumulated paperwork.
+Mercury - Venus|conjunction|Y|Cheery conversations with friends or intimate talks with lovers go well. With discipline, financial negotiations proceed favorably.
+Mercury - Mars|conjunction|Y|Slow down a notch to make what you do or say more effective. Watch your speed while driving.
+Mercury - Jupiter|conjunction|Y|Current enthusiasm helps you to think big and to take chances. You welcome foreign people and ideas. Use your open mind to assimilate new topics.
+Mercury - Saturn|conjunction|Y|You are serious but have difficulty communicating with others. Attack tedious, disciplined tasks. Avoid being overly self-critical.
+Mercury - Uranus|conjunction|Y|You are almost too keen and alert now. Communication is abundant. You send or receive many letters or phone calls and broach new, but not overly ponderous topics.
+Mercury - Neptune|conjunction|Y|You are sensitive and dreamy. Today is good for creativity and bad for logic. Base ideas in reality before implementing them. Avoid deception and delicate, complicated negotiations.
+Mercury - Pluto|conjunction|Y|You speak with intensity and delve deeply into everything. Avoid egocentric, obsessive arguments. You are more persuasive than usual, but make sure there is good reason to persuade others.
+Mercury - Midheaven|conjunction|Y|Plan or discuss your career with trusted advisors. Others consult you about professional matters or you are featured in print or broadcast media. Answer questions carefully.
+Mercury - Ascendant|opposition|Y|You communicate your needs easily. This is a good time for consulting with lawyers, doctors and other professionals. Conversation, consultation and conflict are possible.
+Mercury - Sun|opposition|Y|Mind your temper. Think carefully before acting. Listen to others. Use increased mental energy to gather information.
+Mercury - Moon|opposition|Y|You are so caught up in the past and your emotions that logic and clear communication fail you. Leave negotiations for another day.
+Mercury - Mercury|opposition|Y|Take your time. Impulsive deeds or words may cause needless regret. Your ideas are not always right. Listen to criticism.
+Mercury - Venus|opposition|Y|This is not a good time for relationship decisions, but it is good for discussing problems. Watch what you say.
+Mercury - Mars|opposition|Y|Your ego is thoroughly entwined in what you say. Compromise is difficult. Be careful, especially when traveling.
+Mercury - Jupiter|opposition|Y|You are so enthusiastic you rush through important decisions. Avoid the tendency to overestimate yourself and underestimate others. Over-confidence may make you verbose or inconsiderate.
+Mercury - Saturn|opposition|Y|Avoid making important decisions or presentations. Your gloomy attitude restricts communication. You are critical and precise, but others may not appreciate your harshness.
+Mercury - Uranus|opposition|Y|Your mind runs on with reckless abandon. Make a change in routine to avoid needless rebellion. Think before you act.
+Mercury - Neptune|opposition|Y|Promises that seem to be too good to be true probably are. You are too sensitive and your nerves need a rest. Examine all paperwork, decisions and plans carefully.
+Mercury - Pluto|opposition|Y|Intense interpersonal conflict is possible. You are so obsessed with your ideas that you find it difficult to deal with anything else. You may enter into a useless but captivating ego clash leading nowhere.
+Mercury - Midheaven|opposition|Y|You think clearly about your personal and domestic life. Reorganize to make worldly affairs a mere extension of a strong domestic foundation.
+Mercury - Ascendant|trine|Y|You speak with great self-confidence and value others' opinions as your own. Seek ways to adapt your ideas to your environment. This is a good day for negotiations.
+Mercury - Sun|trine|Y|Ideas and communications flow. You speak with force and clarity. Try to discuss meaningful subjects.
+Mercury - Moon|trine|Y|You listen closely to others. Because you understand your emotions, you express them well.
+Mercury - Mercury|trine|Y|Your logical capacity peaks. You handle ideas and communication quickly and easily.
+Mercury - Venus|trine|Y|Negotiations proceed favorably because you consider all perspectives. Tell a loved one how much s/he means to you.
+Mercury - Mars|trine|Y|In negotiations you accommodate all positions clearly and logically. Initiate or complete projects which require attention to detail.
+Mercury - Jupiter|trine|Y|You assimilate large amounts of information and associate with foreign people or places. This is an excellent time for travel or study. Take maximum advantage of opportunities.
+Mercury - Saturn|trine|Y|Your speech is clear and concise now. Sober decisions take precedence over abstract thoughts. Organize or initiate projects which require diligent, precise thinking.
+Mercury - Uranus|trine|Y|Inventive ideas and new ways of communicating come suddenly to you. Use your intuition to convey your ideas.
+Mercury - Neptune|trine|Y|Today is excellent for creative endeavors. You are innately inspired, not logical. Your sensitivity to people's moods lets you communicate through feeling rather than words.
+Mercury - Pluto|trine|Y|Use essential information to help you restructure your thoughts. You are concerned with self-improvement and higher knowledge. This is an excellent time to reorganize.
+Mercury - Midheaven|trine|Y|You are objective. Handle career-related and personal affairs logically. Plan your future and organize your life.
+Mercury - Ascendant|square|Y|Communication gets out of hand. Be sure that others are willing to listen to your thoughts before you endlessly espouse your views. Remember that conversation requires joint participation.
+Mercury - Sun|square|Y|You are busier than usual. Double-check all work. Weigh options carefully. Slow down and watch your temper.
+Mercury - Moon|square|Y|Outmoded thought patterns create problems with women and rational thought. Arguments are likely if you stubbornly stick to your position.
+Mercury - Mercury|square|Y|Stubbornly sticking to your ideals creates tension, straining communications. Speak forcefully, but listen to others' criticisms for valuable insight.
+Mercury - Venus|square|Y|Laziness, sloppiness or overindulgence creates confusion or poor communication. Leave serious matters for another time.
+Mercury - Mars|square|Y|Stubbornness and impatience invite arguments. Do not harbor anger while operating machinery, especially motor vehicles.
+Mercury - Jupiter|square|Y|You paint your thoughts with a broad, rose-colored brush, but such optimism is fraught with pitfalls. Imprecise thinking turns lofty ideals into foolhardy undertakings. Do not think that confidence will overcome details.
+Mercury - Saturn|square|Y|Accomplishing difficult tasks alone cheers you up. Handle tasks which require diligence or discipline. You look at the world pessimistically, so this is a bad time for meetings which require your input.
+Mercury - Uranus|square|Y|You exude nervous energy, but miss important details in thinking or acting too quickly. Thoughts come and go so fast they are hard to remember. You are erratic now.
+Mercury - Neptune|square|Y|Carefully scrutinize all business dealings. You are easily confused now. People may use your lack of vitality to take advantage of you. Be honest.
+Mercury - Pluto|square|Y|You risk alienating others by constantly insisting that you are correct. Are you advancing a legitimate viewpoint or protecting your ego? Delve deeply into important matters, but avoid obsession.
+Mercury - Midheaven|square|Y|Today is a good time for assessing your career. People offer useful advice if you listen. Test your ideas against reality. You may not finalize matters, but you can acquire important information.
+Mercury - Ascendant|sextile|Y|You have the power to make clear decisions. Clear communication lets you make serious headway in negotiations. Start the day with a clear agenda so you don't get lost in small talk.
+Mercury - Sun|sextile|Y|You welcome increased activity. You speak clearly, especially before groups.
+Mercury - Moon|sextile|Y|You communicate your emotions honestly and effectively. Direct communication inspires others to help.
+Mercury - Mercury|sextile|Y|You are eager, alert and ready to learn. Ideas flow. Detail work proceeds well.
+Mercury - Venus|sextile|Y|Use logic to attract people. You succeed in creative endeavors.
+Mercury - Mars|sextile|Y|Satisfy others' needs and your own desires. Negotiations and sales presentations proceed favorably. Initiate conversations about personal wishes.
+Mercury - Jupiter|sextile|Y|Establish a favorable reputation by working effectively with others. Sales and negotiations proceed favorably because you are open to different points of view.
+Mercury - Saturn|sextile|Y|You have an eye for detail and quality and deliberate carefully before acting or speaking. Today is good for tasks requiring diligence or discipline. Delicate, serious discussions proceed favorably.
+Mercury - Uranus|sextile|Y|Strike up conversations with people you have never associated with before. Serious, tedious duties are not for you today, but you can easily grasp new subjects. Be inventive.
+Mercury - Neptune|sextile|Y|Remember your dreams now since dreams and new ideas are inspirational. You are sensitive to others and may understand their thoughts instantly. However, clear, logical thinking is not your forte now.
+Mercury - Pluto|sextile|Y|Profound subjects and thoughts appeal to you. You do not accept superficial explanations and seek the truth underlying others' actions, but don't dig too deeply.
+Mercury - Midheaven|sextile|Y|You secretly assess others' desires and weaknesses. Convince others using clear, precise methods of communication. Attack accumulated paperwork -- your detail-oriented methods favor mundane tasks.

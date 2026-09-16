@@ -1,0 +1,4 @@
+Transit,LIST,1,Uranus - Ascendant:Uranus - Sun:Uranus - Moon:Uranus - Mercury:Uranus - Venus:Uranus - Mars:Uranus - Jupiter:Uranus - Saturn:Uranus - Uranus:Uranus - Neptune:Uranus - Pluto:Uranus - Midheaven
+Aspect,LIST,1,conjunction:opposition:trine:square:sextile
+Active,LOGICAL,1,Y:N
+Comments,TEXT,50:2

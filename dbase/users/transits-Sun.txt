@@ -1,0 +1,60 @@
+Sun - Ascendant|conjunction|Y|You approach life head-on and enjoy your personal triumphs. You fulfill your personal desires with dedication.
+Sun - Sun|conjunction|Y|Reassess your past year and establish goals for the upcoming one. Goals set now carry the force of personal drive.
+Sun - Moon|conjunction|Y|Determine whether your goals are in harmony with your emotions. Set personal goals for the month.
+Sun - Mercury|conjunction|Y|You communicate forcefully and clearly in all media. Initiate intimate conversations.
+Sun - Venus|conjunction|Y|You feel very loving and sensual now. All social events proceed favorably. Set today aside for enjoyment since you lack motivation.
+Sun - Mars|conjunction|Y|Your vitality improves. You are confident and willingly accept challenge. Physical labor or exercise relieves tension. Do not let confidence become arrogance.
+Sun - Jupiter|conjunction|Y|You are open to new thinking and new places, and are excited by learning new skills. Don't be carried away by enthusiasm. Temperance brings long-lasting success.
+Sun - Saturn|conjunction|Y|You feel depressed or restricted now. Don't indulge in self-pity. Attend to tedious tasks while you are so seriously minded. Accept life's realities and live with them.
+Sun - Uranus|conjunction|Y|You are exposed to increased tension and excitement. Events may happen that shake you out of a rut. Flexibility is the key to handling this frantic day successfully.
+Sun - Neptune|conjunction|Y|You have less energy than usual. Relax if you feel tired. Avoid important decisions as you might make unnecessary concessions.
+Sun - Pluto|conjunction|Y|You need to learn the power of cooperation. If you are pompous and overbearing, people are liable to subvert you. If you are overly submissive, you could be forced to stand up for your rights.
+Sun - Midheaven|conjunction|Y|Your execution of worldly ambitions during the past year is evident. Learn from today's events how to manage your career.
+Sun - Ascendant|opposition|Y|Avoid confrontation by acknowledging your dependence on others. Use compromise or diplomacy. Maintain balance. Encounters with other people are unavoidable.
+Sun - Sun|opposition|Y|Consider your actions carefully as you may be under close scrutiny. Heed criticism realistically.
+Sun - Moon|opposition|Y|Excessive emotions block achievement. You feel out of balance with your inner self and with others. Expect conflict.
+Sun - Mercury|opposition|Y|Lively correspondence is likely. If you cannot avoid an argument, use information gathered now to make effective decisions later.
+Sun - Venus|opposition|Y|You feel wonderful, but lack the will or focus to work hard. Don't schedule important events. Avoid overindulgence.
+Sun - Mars|opposition|Y|Ongoing matters culminate. Before you alienate people, be certain your position is correct. Stubborn arrogance makes you your own worst enemy.
+Sun - Jupiter|opposition|Y|Clear decisions are difficult. You see many opportunities, but you can not decide which ones to exploit. Overestimating your position leads to pompous behavior or faulty planning.
+Sun - Saturn|opposition|Y|Accept your current fate and concentrate on tasks requiring diligence. Your low energy and lack of confidence makes working with others difficult. Busy work cures depression.
+Sun - Uranus|opposition|Y|Unpredictability is the theme for your day. Your restless nature catches others off-guard. Other people are equally restless and unpredictable. Expect the unusual.
+Sun - Neptune|opposition|Y|Test all claims made by others as confusion, delusion and deliberate deception are possible. Avoid negotiations or signing agreements. Tired nerves make you oversensitive, gullible.
+Sun - Pluto|opposition|Y|Use your intense nature to enlist others' aid. Avoid acting alone or alienating those who help you. Avoid dangerous neighborhoods or people. Be ready to make substantial repairs or adjustments.
+Sun - Midheaven|opposition|Y|Career demands become difficult. Attend to your mental and physical well-being. If your home life or mental state is poor, your job performance will suffer. Seek nurturing, comfort and relaxation.
+Sun - Ascendant|trine|Y|Your mood soars. You would rather have fun than work hard. Schedule accordingly. Today is good for physical or mental vacations.
+Sun - Sun|trine|Y|You feel very good about yourself and your work. Relax, but don't get sloppy. This is an excellent time for a vacation.
+Sun - Moon|trine|Y|You feel very good about who you are. Relationships with women and the public should proceed smoothly.
+Sun - Mercury|trine|Y|Tackle intricate tasks. Dispense with piled up paperwork.
+Sun - Venus|trine|Y|You enjoy love and pleasure. Your friendly, honest nature attracts others. Good feelings permeate all social events.
+Sun - Mars|trine|Y|Relations with men or authority figures should proceed favorably. You feel competent and act accordingly.
+Sun - Jupiter|trine|Y|Your thoughts expand. You willingly seek out new people and new ideas. Celebrations, vacations and similar activities proceed favorably. Sober thought reaps generous rewards.
+Sun - Saturn|trine|Y|You are interested in accomplishing your work, not in attracting attention. Set a solid foundation for the future. Engage in tasks requiring concentration.
+Sun - Uranus|trine|Y|You are quick minded and think freely. You abound with new ideas and learn fast. Keep a note pad handy.
+Sun - Neptune|trine|Y|You are particularly compassionate and sensitive now, and enjoy helping others. You create vivid mental images. Evaluate your thoughts carefully and you may find profound inspiration.
+Sun - Pluto|trine|Y|You have a chance to make profound changes in your life. You are tempted to influence people's lives, but you can only change yourself. You will gain long range benefits if you come to terms with authority.
+Sun - Midheaven|trine|Y|Consolidate your resources and learn new skills. You know how to advance your career. Act in your own self-interest, but do not seek self gratification.
+Sun - Ascendant|square|Y|There is conflict between your private and public lives. These two areas are unavoidably interdependent. You cannot overemphasize one area without affecting the other.
+Sun - Sun|square|Y|If you find yourself at odds with people, evaluate your goals and adjust your behavior accordingly.
+Sun - Moon|square|Y|Moodiness interferes with achievement. Integrate your domestic life and personal relationships with career goals.
+Sun - Mercury|square|Y|Niggling little details and poor communication create tension. Plan your words and articulate your thoughts carefully. Double check all work. Obtain all the facts before arguing.
+Sun - Venus|square|Y|In your desire to please others, try not to concede on crucial matters. Overeating or consuming sweet, rich foods causes dietary or digestive problems.
+Sun - Mars|square|Y|Stubbornness and anger interfere with achievement. Use the delicate art of compromise or risk a needless clash of egos.
+Sun - Jupiter|square|Y|Your increased optimism is a problem. You grasp complex subjects and new philosophies quickly. However, your inattention to detail and lack of caution make you believe anything is possible.
+Sun - Saturn|square|Y|You feel unfairly restricted. You shoulder more burdens than necessary or experience problems with authority figures. Your confidence is at a low point. Do only what is absolutely necessary.
+Sun - Uranus|square|Y|Expect the unexpected. The more you try to tow the line the more bothersome this unusual day is. Be flexible.
+Sun - Neptune|square|Y|You lack the backbone to deal directly and honestly with others. Give your nerves much-needed rest. Confusion abounds. Avoid crucial negotiations.
+Sun - Pluto|square|Y|Proceed with extreme caution. Avoid bullying others or being bullied. Do not fight a group's will. Think long and hard before confronting authority.
+Sun - Midheaven|square|Y|How people perceive your actions is important. People challenge or support you according to their perceptions of your motives. If you let others know that your goals are the same, success is assured.
+Sun - Ascendant|sextile|Y|Adjust your desires to group needs. You make good presentations because you see how to accommodate all sides. People trust you.
+Sun - Sun|sextile|Y|Sell yourself. You feel good about who you are and what you want to do. Friendships proceed favorably.
+Sun - Moon|sextile|Y|Use your confidence to advance mutual goals. Initiate change without upsetting the status quo.
+Sun - Mercury|sextile|Y|Communication and intricate work go well. You eagerly accept new ideas and enjoy initiating conversations.
+Sun - Venus|sextile|Y|Your social life proceeds smoothly. Your goals mesh with other people's desires. You would rather socialize than work hard.
+Sun - Mars|sextile|Y|Both your physical and mental vitality are strong. You can win assistance with a friendly, self-assertive manner.
+Sun - Jupiter|sextile|Y|This is a good day for holding meetings and making sales. Friends are in a position to help you directly or introduce you to someone influential. Explore new opportunities.
+Sun - Saturn|sextile|Y|Your disciplined mind helps you to make realistic future plans. You willingly accomplish tasks that further your goals without regard to immediate gratification.
+Sun - Uranus|sextile|Y|You enjoy your freedom, but avoid disrupting routine. Try new ways of doing things.
+Sun - Neptune|sextile|Y|Your sensitivity is heightened. Psychic and creative abilities improve. Daydreaming leads to good results.
+Sun - Pluto|sextile|Y|You see how delaying gratification ultimately leads to success. Make those difficult but long overdue changes in your life. Reorganize your home or office now while change occurs easily.
+Sun - Midheaven|sextile|Y|Pay attention to how important other people are to your success. Show your appreciation. Life's struggles are easier with help from friends.

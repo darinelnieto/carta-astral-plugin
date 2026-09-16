@@ -1,0 +1,4 @@
+Body,LIST,1,Sun:Moon:Mercury:Venus:Mars:Jupiter:Saturn:Uranus:Neptune:Pluto:Ascendant:Ascending Node:Lilith:Pars Fortunae:Chiron
+Nakshatra,LIST,1,Ashwini:Bharani:Krittika:Rohini:Mrigshirsha:Ardra:Punarvasu:Pushya:Ashlesha:Magha:Purvaphalguni:Uttaraphalguni:Hasta:Chitra:Swati:Vishakha:Anuradha:Jyeshtha:Mula:Purvashadha:Uttarashadha:Shravana:Dhanishtha:Shatbhisha:Poorvabhadrapada:Uttarabhadrapada:Revati:Abhijit
+Active,LOGICAL,1,Y:N
+Comments,TEXT,50:2

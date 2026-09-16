@@ -1,0 +1,60 @@
+Moon - Ascendant|conjunction|Y|Your actions are programmed by past behavior. You gain from others through empathy and caring. Learn about yourself through interaction with women.
+Moon - Sun|conjunction|Y|Your personal new moon sets the tone for the month and is usually felt as a burst of energy. Because logic and emotion are in harmony, smooth relations with others are likely. Relax if you feel down.
+Moon - Moon|conjunction|Y|Current feelings dominate the upcoming month. You enjoy the familiar. Emotions are strong, objectivity difficult. Women are more important.
+Moon - Mercury|conjunction|Y|You are too scattered, too easily distracted. Gather information, discuss emotions, but avoid making decisions. Conversations with women go well.
+Moon - Venus|conjunction|Y|You are cheerful. Get out, socialize. Spend time with relatives or close friends. Relations with women are favored. Avoid overindulgence.
+Moon - Mars|conjunction|Y|Avoid hasty or impulsive decisions. Don't back down on essential issues, but make sure you have a clear view of your situation before making commitments. The slightest provocation could irritate you.
+Moon - Jupiter|conjunction|Y|Dealings with the public or large groups of people are aided by mutual understanding. Others return your generosity. Relations with women are favored.
+Moon - Saturn|conjunction|Y|You keep feelings to yourself and view the world negatively or without emotion. Domestic problems or poor relations with others stem from an apparent lack of support.
+Moon - Uranus|conjunction|Y|Break from your normal routine. This is not a time for tasks requiring deep concentration. Try new techniques. Suppressed emotions lead to frustration and mishaps.
+Moon - Neptune|conjunction|Y|Delay important decisions. You are more interpretive than precise. Your sensitivity increases. You assimilate others' moods so beware of negative influences.
+Moon - Pluto|conjunction|Y|Intense emotions surface. Study present events to learn about your emotions. Avoid obsession, jealousy or over-possessiveness.
+Moon - Midheaven|conjunction|Y|You could be either public or private, depending on your mental state. If you feel low, relax and recharge. If gregarious, your empathy helps.
+Moon - Ascendant|opposition|Y|Current relationship decisions are probably not logical. You sense the emotional needs of close contacts, but have difficulty seeing people's points of view. Seek or give support to loved ones.
+Moon - Sun|opposition|Y|Your emotions interfere with your goals. You need to balance domestic concerns and career objectives.
+Moon - Moon|opposition|Y|Your emotions are deep and powerful, but too subjective. Detach yourself from the issues. Observe your reactions to better understand your emotional state.
+Moon - Mercury|opposition|Y|Ingrained thought patterns may not help you in current situations. You are so subjective you fail to appreciate the folly of your actions. Delay making important decisions.
+Moon - Venus|opposition|Y|Your overriding need for love causes embarrassment. You are too subjective now to make realistic decisions about relationships.
+Moon - Mars|opposition|Y|Your dissatisfaction with others stems from self-repression. Your emotions are showing, so supervise them consciously.
+Moon - Jupiter|opposition|Y|You are feeling quite generous and are at peace with others, but rebel against restriction, especially in partnership situations.
+Moon - Saturn|opposition|Y|You are so gloomy that others avoid you. Do not make decisions in your current emotional state. Take the time to rest and recharge.
+Moon - Uranus|opposition|Y|Your emotional excitability and impulsive decisions cause problems. Sudden actions catch others off guard.
+Moon - Neptune|opposition|Y|Your current feelings of inferiority are probably not warranted by actual events. Judgement is clouded. Delay important decisions or actions. Drugs and alcohol worsen your distorted viewpoint.
+Moon - Pluto|opposition|Y|You speak from the heart. Express deep emotions, but remember that others may not understand your feelings. Save important emotional decisions for a more sober period.
+Moon - Midheaven|opposition|Y|You are most comfortable in familiar environments. If worldly affairs demand too much energy, withdraw without neglecting your responsibilities.
+Moon - Ascendant|trine|Y|You are sensitive, warm and protective, especially with groups of people. Relations with women, regardless of your sex, proceed favorably.
+Moon - Sun|trine|Y|Your inner and outer worlds are in harmony. Use this quiet period to make decisions affecting your relationships and your domestic life. Relations with the opposite sex proceed favorably.
+Moon - Moon|trine|Y|You seek inner peace. You enjoy homelife and close friends and relatives.
+Moon - Mercury|trine|Y|You express warm emotion. Communications with women proceed smoothly. Your daily routine suits you.
+Moon - Venus|trine|Y|This period brings on warm feelings. You enjoy spending time with your most significant associates (lovers, partners). You have the ability (and desire) to attract others.
+Moon - Mars|trine|Y|Use emotional strength to inspire others into action. Relations with men are favored.
+Moon - Jupiter|trine|Y|You are drawn to people sympathetic to your viewpoint. You attract and are attracted to people with a sense of well-being and you help familiar people.
+Moon - Saturn|trine|Y|You rely on lessons from the past and seek practical answers to emotional concerns. Seek assistance from older or more experienced people. Your emotions are stable.
+Moon - Uranus|trine|Y|Change your emotional outlook and voice personal concerns. People will allow you more freedom than usual. This influence favors relationships with friends and groups of people.
+Moon - Neptune|trine|Y|You empathize easily with others. Seek out positive influences. Use your imagination. Fantasies will renew your spirit.
+Moon - Pluto|trine|Y|Intense but positive emotions dominate this period. Change your emotional life. Intimate relationships may be passionate, but don't get carried away.
+Moon - Midheaven|trine|Y|You are at one with your inner self and your outer demands. Inner calm makes it easier to satisfy your desires for peace and quiet or social interaction.
+Moon - Ascendant|square|Y|Dealing with others brings strong emotions. If you feel extroverted, you will display deep sensitivity. If you feel withdrawn, relax. Your thoughts are not clear. Avoid making important decisions.
+Moon - Sun|square|Y|Your emotions interfere in working and getting along with others. Avoid stubbornness.
+Moon - Moon|square|Y|Domestic and personal affairs interfere with your decisions. You are emotionally tense. Don't let others get to you.
+Moon - Mercury|square|Y|Excessive emotion makes you sloppy. Are you thinking or just reacting? Communicate carefully.
+Moon - Venus|square|Y|You are overprotective. Give your partners and close associates space. Bodily fluids may cause discomfort.
+Moon - Mars|square|Y|Emotions cause considerable strain. Avoid or delay important decisions. Hasty action causes needless accidents or mishaps, especially around the home.
+Moon - Jupiter|square|Y|You brim with confidence and optimism, but watch yourself. Lofty ideas pique your interest. If you see yourself as the ideas you represent others may see you as pompous or foolhardy.
+Moon - Saturn|square|Y|Don't make crucial decisions. You are overly self-critical. Life looks worse than it is. You find it difficult to deal with others. Your situation will improve.
+Moon - Uranus|square|Y|Don't make any long-term decisions based on present feelings. You need independence. Your relationships seem burdensome, but these feelings will not last. Avoiding problems could be dangerous.
+Moon - Neptune|square|Y|Avoid important, long-term decisions. Things are not as they appear. Deception reigns. Your emotional decisions are based on old fears or hidden feelings. Escaping through drugs or alcohol is self-deluding.
+Moon - Pluto|square|Y|Don't succumb to sudden urges or impulses. You risk obsession with singular desires. Avoid subversive, manipulative tactics, but resist giving into unusual demands.
+Moon - Midheaven|square|Y|Your moods shift uncontrollably. You need to justify worldly demands. Tensions around the home indicate you are putting too much of emphasis on your career.
+Moon - Ascendant|sextile|Y|You feel comfortable in familiar surroundings among friends and family. Seek peace and harmony. Empathy wins you cooperation.
+Moon - Sun|sextile|Y|You find breathing space even if you are quite busy. Spend time with others. Small opportunities arise through friends or family.
+Moon - Moon|sextile|Y|This is a time of deep, pleasant feelings. Friends, relatives or women treat you wonderfully. You lend or find a sympathetic ear.
+Moon - Mercury|sextile|Y|Communication now, while lively, is shallow and gossipy. Seek others' opinions. Initiate correspondence now while you are sensitive but objective.
+Moon - Venus|sextile|Y|This is a good time to socialize. Spend time with friends or loved ones, especially in familiar surroundings. You can easily maintain intimate and important conversation.
+Moon - Mars|sextile|Y|Take the initiative. You work equally well alone and with others. People give you the lead because of your directness. Even those who do not agree with you respect your views.
+Moon - Jupiter|sextile|Y|You are concerned with other people's welfare. Working with others benefits everyone. Public relations or sales efforts proceed favorably.
+Moon - Saturn|sextile|Y|You are calm, reflective and serious, but not depressed. Complete matters requiring patience and precision. Balance your emotions with responsible action.
+Moon - Uranus|sextile|Y|You seek excitement without upsetting the status quo. Someone or something enters your life and shakes you out of a rut. Expect the new and different.
+Moon - Neptune|sextile|Y|You are sensitive to others' moods so seek out positive influences. You will gain insight and awareness through relaxation or meditation.
+Moon - Pluto|sextile|Y|Reorganize. Make repairs around the home or office. Initiate short term changes. Discuss personal matters with others, especially close friends or relatives.
+Moon - Midheaven|sextile|Y|You seek comfortable situations. Sales pitches or expression of love are favored because you are pleasantly emotional. You are as sympathetic to others as they are to you.

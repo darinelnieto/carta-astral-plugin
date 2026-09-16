@@ -1,0 +1,60 @@
+Mars - Ascendant|conjunction|Y|Just sitting around irritates you. You want to get things done. You risk defeat or injury if you overstep your bounds. Air differences now while you can control your impulses.
+Mars - Sun|conjunction|Y|You are ambitious and enjoy excitement. See that increased drive does not lead to accidents or altercations.
+Mars - Moon|conjunction|Y|Altercations arise from unresolved conflicts. Keep desires in perspective. Use emotional strength to your advantage.
+Mars - Mercury|conjunction|Y|You succeed by using firm, logical, honest communication. Suppressed anger leads to ill-timed, unwarranted and needless arguments.
+Mars - Venus|conjunction|Y|Your passions boil. You may seek immediate sexual gratification. Sublimate your sexual tension in creative undertakings.
+Mars - Mars|conjunction|Y|Initiate personal projects. Projects begun now carry the full force of personal ambition. Put energy into work, not your ego.
+Mars - Jupiter|conjunction|Y|Initiate new projects. Your self-confidence encourages you to take chances. Use your enthusiasm to effect long range changes. Indulge your desire for physical activity.
+Mars - Saturn|conjunction|Y|You may feel restricted. Vent frustrations through demanding tasks. You can deal with mindless tedious details easily, but you are too gloomy to appreciate your efforts.
+Mars - Uranus|conjunction|Y|You bristle with nervous energy now, but you may regret impulsive actions later. The people you anger today are the same ones you will have to deal with tomorrow.
+Mars - Neptune|conjunction|Y|Your nerves are on edge. Your body signals you to slow down. Life appears worse than it is. Avoid important negotiations since you lack the fortitude to say no. Avoid reckless activity or drugs.
+Mars - Pluto|conjunction|Y|Boundless energy helps you to accomplish difficult tasks. You may also encounter an immovable ego. Avoid manipulative practices or unnecessary submission to another's will. Find a way to transform opposition into cooperation.
+Mars - Midheaven|conjunction|Y|Handle career goals, foremost on your mind, carefully. Avoid ego conflicts. Accomplish tasks which challenge you, but are also valid contributions to group goals.
+Mars - Ascendant|opposition|Y|Avoid arguments by working alone. If you engage in egocentric battles you decrease your self-worth among bosses, peers and other important people.
+Mars - Sun|opposition|Y|You encounter either opposition to or recognition of your plans or actions. How you handle yourself is crucial. Defend your goals without compromising your position. Be diplomatic.
+Mars - Moon|opposition|Y|If there is a time to state your point emphatically, this is it. Don't argue needlessly, and remember that internalized anger causes careless mistakes. Your emotions are showing, so act sensibly.
+Mars - Mercury|opposition|Y|Express yourself carefully. Defend your ideas, not your ego. Impulsive behavior causes accidents, especially to the arms or fingers.
+Mars - Venus|opposition|Y|You seek gratification above all else. If are obsessive, you alienate others. Vent excess energy into creativity.
+Mars - Mars|opposition|Y|The opposition you encounter demands a reassessment of strategies, plans and techniques. Try not to take criticism personally. Subvert anger into useful activity.
+Mars - Jupiter|opposition|Y|You feel so confident about yourself that you may overreach your bounds and forget important details. Do not forget your manners. Pay attention to details and stop thinking you are unstoppable.
+Mars - Saturn|opposition|Y|Current circumstances may not allow you to voice your frustrations. Your boss or authority figures may criticize you. Dispel the negative by throwing yourself into difficult, tedious tasks. A sense of accomplishment will lift your spirits.
+Mars - Uranus|opposition|Y|Be ready for anything now. Your personal plans are measured against cold reality. You suddenly discover new methods and details you have overlooked previously. Be consciously aware to avoid accidents.
+Mars - Neptune|opposition|Y|Relax. Do not overtax your system. You are susceptible to infection or fever. Avoid demanding situations, especially negotiations. Abstain from dishonest or deceptive practices. You are too confused to make clear judgments.
+Mars - Pluto|opposition|Y|Power struggles are likely. Do not give others the means to obtain an unfair advantage over you or anger important allies. Do not pick a fight you cannot win. Avoid dangerous neighborhoods or situations.
+Mars - Midheaven|opposition|Y|Domestic problems or arguments stem from excessive material desire. Make significant changes around the home. A stable home life aids career advancement.
+Mars - Ascendant|trine|Y|Make your own decisions. Athletes and other similarly self-motivated people benefit now. Pursue activity that brings out your best. It would be dangerous to just sit around and do nothing now. Enjoy the new and different.
+Mars - Sun|trine|Y|You are pleasantly self-assertive. Undertake tasks requiring energy and commitment. Relations with men or with authority go well.
+Mars - Moon|trine|Y|Your desires and emotions work well together. You express yourself fearlessly. Physical labor or exercise suit you.
+Mars - Mercury|trine|Y|Firm and logical communication lets you effectively demonstrate the validity of your ideas. You advance now through self-reliance.
+Mars - Venus|trine|Y|Reach agreements without compromising your position. People see your desires more favorably. Relations with the opposite sex should go well.
+Mars - Mars|trine|Y|It would be a shame to waste your increased energy. Work out aggressions constructively. Use this time accomplish as much work as possible.
+Mars - Jupiter|trine|Y|You possess clear perception and initiative. Even your muscular action improves. You can take more than the usual number of risks in physical activity or in business, but remember your manners.
+Mars - Saturn|trine|Y|You are patient and would rather complete current tasks than brag about accomplishments. Attack complex problems. Achievement is its own reward.
+Mars - Uranus|trine|Y|Break out of your rut. Try new methods. View problems from a different perspective.
+Mars - Neptune|trine|Y|You sincerely comprehend others' needs and discover the true pleasure of selflessness. You realize how vulnerable we humans are.
+Mars - Pluto|trine|Y|Align your ambitions with other people's goals. Find out what you can change in your life to improve everyone's lot.
+Mars - Midheaven|trine|Y|You wholly involve yourself in your actions and focus on your career goals. You have the energy and resources to get what you want and to enjoy physical activity.
+Mars - Ascendant|square|Y|Arguments are likely, but do not expect to solve differences now. If you establish your position firmly now, you can more easily come to terms later. Do not internalize your anger as it may surface inconveniently at another time.
+Mars - Sun|square|Y|Don't let anger or stubbornness create powerful enemies. Avoid impulsive behavior. Handle machines and sharp objects carefully.
+Mars - Moon|square|Y|Avoid or delay important decisions. Your emotions are tricky and may not relate to current circumstances. Think before you act.
+Mars - Mercury|square|Y|Your defensive, impatient behavior invites arguments or danger. Try not to drive if angry and use sharp objects with caution.
+Mars - Venus|square|Y|Excessive demands for gratification alienate others. Don't embarrass yourself in the search for love.
+Mars - Mars|square|Y|Arrogant behavior is dangerous and foolhardy now. With prudence you can make progress. Difficulties appear when your plans ruffle people's egos.
+Mars - Jupiter|square|Y|If you feel invincible expect trouble getting cooperation, trouble with your budget or personal injury. Plan strategically for the future.
+Mars - Saturn|square|Y|Your life seems like one endless frustration after another. Do not begin new projects--complete unfinished work. Skilled execution of tedious tasks takes your mind off of your problems.
+Mars - Uranus|square|Y|Expect disturbances but don't cause them. You may suddenly announce your frustration over something and make rash attempts to alter your circumstances. Your current situation is of your own making. Try to make changes without rocking the boat.
+Mars - Neptune|square|Y|Your energy is low. Skirting issues enables others to deceive you. Rest and alleviate stress. Above all, avoid any type of dishonest behavior.
+Mars - Pluto|square|Y|You either desire sweeping changes or experience unwanted ones. The keyword now is cooperation. Satisfy your desires, as long as you have strong allies. Do not give in to unreasonable demands.
+Mars - Midheaven|square|Y|Be especially conscious of your actions. You may strive for personal gain with little regard to rules or customs. Others object to your inconsiderate attitude, not your motives.
+Mars - Ascendant|sextile|Y|'Learn to lead others without damaging fragile egos. People appreciate your personal drive and lend cooperation. You excel in leading others in a 'team' situation.'
+Mars - Sun|sextile|Y|Your actions flow directly from personal desires and wishes. Your level of confidence is a source of motivation for others.
+Mars - Moon|sextile|Y|You are fully involved in your actions. Your passions arise, but you are too subjective to make intelligent decisions.
+Mars - Mercury|sextile|Y|You can communicate your desires forcefully and clearly. Your alertness helps you learn new topics or discover new opportunities.
+Mars - Venus|sextile|Y|Love is favored now. Both you and your partner are willing to compromise. Creative pursuits and financial dealings go equally well.
+Mars - Mars|sextile|Y|You have the confidence to initiate new and different projects and to lead others.
+Mars - Jupiter|sextile|Y|Prudent judgment tempers your enthusiasm now. You confidently say the right things to the right people. Advance personal goals without losing sight of long-range plans.
+Mars - Saturn|sextile|Y|You have the discipline and the stamina to perform demanding and complex tasks. Build a solid foundation for the future. Conserve personal resources.
+Mars - Uranus|sextile|Y|You can make changes easily now. Discover new ideas, meet new people and try out new methods. Attempt the unusual without upsetting the status quo.
+Mars - Neptune|sextile|Y|You lack energy and your ego needs a rest. You can explore new ways of thinking without allowing personal bias to block understanding.
+Mars - Pluto|sextile|Y|You can make sweeping changes in your life that benefit everyone. Make political headway. This is an excellent time to advance your career.
+Mars - Midheaven|sextile|Y|Take the initiative in reaching your personal goals. Your confidence draws others to your side. You work effectively with people in power.

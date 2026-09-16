@@ -1,0 +1,4 @@
+Transit,LIST,1,Jupiter - Ascendant:Jupiter - Sun:Jupiter - Moon:Jupiter - Mercury:Jupiter - Venus:Jupiter - Mars:Jupiter - Jupiter:Jupiter - Saturn:Jupiter - Uranus:Jupiter - Neptune:Jupiter - Pluto:Jupiter - Midheaven
+Aspect,LIST,1,conjunction:opposition:trine:square:sextile
+Active,LOGICAL,1,Y:N
+Comments,TEXT,50:2

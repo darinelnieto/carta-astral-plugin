@@ -1,0 +1,4 @@
+Body,LIST,1,Sun:Moon:Mercury:Venus:Mars:Jupiter:Saturn:Uranus:Neptune:Pluto:Ascendant:Ascending Node:Lilith:Pars Fortunae:Chiron
+House,LIST,1,House I:House II:House III:House IV:House V:House VI:House VII:House VIII:House IX:House X:House XI:House XII
+Active,LOGICAL,1,Y:N
+Comments,TEXT,50:2

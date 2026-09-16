@@ -1,0 +1,4 @@
+Transit,LIST,1,Mars - Ascendant:Mars - Sun:Mars - Moon:Mars - Mercury:Mars - Venus:Mars - Mars:Mars - Jupiter:Mars - Saturn:Mars - Uranus:Mars - Neptune:Mars - Pluto:Mars - Midheaven
+Aspect,LIST,1,conjunction:opposition:trine:square:sextile
+Active,LOGICAL,1,Y:N
+Comments,TEXT,50:2

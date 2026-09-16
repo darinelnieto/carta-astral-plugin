@@ -1,0 +1,4 @@
+Transit,LIST,1,Saturn - Ascendant:Saturn - Sun:Saturn - Moon:Saturn - Mercury:Saturn - Venus:Saturn - Mars:Saturn - Jupiter:Saturn - Saturn:Saturn - Uranus:Saturn - Neptune:Saturn - Pluto:Saturn - Midheaven
+Aspect,LIST,1,conjunction:opposition:trine:square:sextile
+Active,LOGICAL,1,Y:N
+Comments,TEXT,50:2

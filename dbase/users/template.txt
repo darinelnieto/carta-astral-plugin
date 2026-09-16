@@ -1,0 +1,134 @@
+<!-- HTML TEMPLATE OUTPUT -->
+<!-- START EDITING FROM HERE -->
+	
+<div class="w3-content w3-center" id="TETRA_TITLE" style="margin: 0 auto;background-color: white;"></div>
+<div class="w3-content w3-center" id="TETRA_BIRTH_DETAILS" style="margin: 0 auto;background-color: white;"></div>
+<div id="TETRA_ASTRO_REPORT" style="margin: 0 auto;background-color: white;"></div>
+<div id="TETRA_CHART" style="margin: 0 auto;background-color: white;"></div>
+<div id="TETRA_ASPECTS_GRID" style="margin: 0 auto;background-color: white;"></div>
+<div class="w3-content w3-center" id="TETRA_SHORT_REPORTS" style="margin: 0 auto;background-color: white;"></div>
+<div class="w3-content w3-center" id="TETRA_TRANSITS" style="margin: 0 auto;background-color: white;"></div>
+<div class="w3-content w3-center" id="TETRA_PLANETS" style="margin: 0 auto;background-color: white;"></div>
+<div class="w3-content w3-center" id="TETRA_HOUSES" style="margin: 0 auto;background-color: white;"></div>
+<div class="w3-content w3-center" id="TETRA_STARS" style="margin: 0 auto;background-color: white;"></div>
+<div class="w3-content w3-center" id="TETRA_ASPECTS" style="margin: 0 auto;background-color: white;"></div>
+<div class="w3-content w3-center" id="TETRA_PARS" style="margin: 0 auto;background-color: white;"></div>
+<div class="w3-content w3-center" id="TETRA_DIGS" style="margin: 0 auto;background-color: white;"></div>
+<div class="w3-content w3-center" id="TETRA_ELEMENTS" style="margin: 0 auto;background-color: white;"></div>
+<div class="w3-content w3-center" id="TETRA_VEDIC" style="margin: 0 auto;background-color: white;"></div>
+<div class="w3-content w3-center" id="TETRA_CALC_AGAIN" style="margin: 0 auto;background-color: white;"></div>
+<div class="w3-content w3-center" id="TETRA_REPORTS" style="margin: 0 auto;background-color: white;"></div>
+
+<!-- STOP EDITING HERE -->
+<!-- END HTML USER OUTPUT -->
+
+<!-- DEFINE COLORS OF THE GRAPHICAL CHART -->
+<script>
+
+/* START EDITING FROM HERE */
+
+/* OUTER RING COLOR SIGNS  - DEFINE ONE COLOR OR SEVERAL */
+astrology_COLOR_ARIES = "#fff";
+astrology_COLOR_TAURUS = "#fff";
+astrology_COLOR_GEMINI= "#fff";
+astrology_COLOR_CANCER = "#fff"; 
+astrology_COLOR_LEO = "#fff"; 
+astrology_COLOR_VIRGO = "#fff"; 
+astrology_COLOR_LIBRA = "#fff";  
+astrology_COLOR_SCORPIO = "#fff";  
+astrology_COLOR_SAGITTARIUS = "#fff";
+astrology_COLOR_CAPRICORN = "#fff"; 
+astrology_COLOR_AQUARIUS = "#fff"; 
+astrology_COLOR_PISCES = "#fff";
+
+/* PLANETS AND POINTS GLYPHS COLORS */
+astrology_COLOR_SUN = "#f86c29";
+astrology_COLOR_MOON = "#f86c29";
+astrology_COLOR_MERCURY = "#0000ff";
+astrology_COLOR_VENUS = "#0000ff";
+astrology_COLOR_MARS = "#0000ff";
+astrology_COLOR_JUPITER = "#0000ff";
+astrology_COLOR_SATURN = "#f86c29";
+astrology_COLOR_URANUS = "#0000ff";
+astrology_COLOR_NEPTUNE = "#0000ff";
+astrology_COLOR_PLUTO = "#0000ff";
+astrology_COLOR_ASC = "#ff0000";
+astrology_COLOR_MC = "#ff0000";
+astrology_COLOR_PLANETS = "#0000ff";
+
+/* ASPECTS COLORS */
+astrology_COLOR_CONJUNCTION = "#f86c29";
+astrology_COLOR_SEXTILE = "#0000ff";
+astrology_COLOR_SQUARE = "#ff0000";
+astrology_COLOR_TRINE = "#0000ff";
+astrology_COLOR_OPPOSITION = "#ff0000";
+
+/* MIDDLE RING COLOR (where planets show in the chart) */
+astrology_COLOR_BACKGROUND = "#FFFFFF";
+
+/* INNER MOST RING (where aspects are) */
+/* show or not the inner circle */
+astrology_SHOW_INNER_CIRCLE = false;
+astrology_COLOR_INNER_BACKGROUND = "#FF0000";
+astrology_COLOR_INNER_CIRCLE = astrology_COLOR_INNER_BACKGROUND;
+
+/* SIGN GLYPHS COLORS */
+astrology_COLOR_fire = "#ff0000"; /* Fire color */
+astrology_COLOR_earth = "#00810d"; /* Earth color */
+astrology_COLOR_air = "#828301"; /* Air color */
+astrology_COLOR_water = "#00007e"; /* Water color */
+astrology_COLOR_same_color = "#000000"; /* same color for sign glyphs */
+
+/* 12 colors from Aries to Pisces with the 4 elements */
+astrology_COLOR_SIGNS = [astrology_COLOR_fire,astrology_COLOR_earth,astrology_COLOR_air,astrology_COLOR_water,astrology_COLOR_fire,astrology_COLOR_earth,astrology_COLOR_air,astrology_COLOR_water,astrology_COLOR_fire,astrology_COLOR_earth,astrology_COLOR_air,astrology_COLOR_water,astrology_COLOR_fire,astrology_COLOR_earth,astrology_COLOR_air,astrology_COLOR_water];
+
+/* Uncomment next line for same color for all the sign glyphs */
+// astrology_COLOR_SIGNS = [astrology_COLOR_same_color,astrology_COLOR_same_color,astrology_COLOR_same_color,astrology_COLOR_same_color,astrology_COLOR_same_color,astrology_COLOR_same_color,astrology_COLOR_same_color,astrology_COLOR_same_color,astrology_COLOR_same_color,astrology_COLOR_same_color,astrology_COLOR_same_color,astrology_COLOR_same_color];
+
+<!-- STOP EDITING HERE -->
+</script>
+<!-- END -->
+
+<!-- DEFINE TABS CSS ON THE INITIAL FORM -->
+<style>
+
+<!-- START EDITING FROM HERE -->
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+	color: darkgray;
+}
+.tab button:hover {
+    background-color: #ddd;
+}
+.tab button.active {
+    background-color: #ccc;
+}
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+	
+}
+.tabcontent2 {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+	
+}
+<!-- STOP EDITING HERE -->
+
+</style>
+<!-- END CSS -->

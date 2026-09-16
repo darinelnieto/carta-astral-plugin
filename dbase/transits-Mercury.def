@@ -1,0 +1,4 @@
+Transit,LIST,1,Mercury - Ascendant:Mercury - Sun:Mercury - Moon:Mercury - Mercury:Mercury - Venus:Mercury - Mars:Mercury - Jupiter:Mercury - Saturn:Mercury - Uranus:Mercury - Neptune:Mercury - Pluto:Mercury - Midheaven
+Aspect,LIST,1,conjunction:opposition:trine:square:sextile
+Active,LOGICAL,1,Y:N
+Comments,TEXT,50:2

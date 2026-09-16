@@ -1,0 +1,60 @@
+Venus - Ascendant|conjunction|Y|You express your feelings easily. Introduce yourself to a new romantic partner or patch up misunderstandings with a current one. Entertainment, social events, fine dining and shopping please you.
+Venus - Sun|conjunction|Y|Social or intimate affairs proceed favorably. You are more popular, particularly with women. Avoid overindulgence.
+Venus - Moon|conjunction|Y|Invest time with relatives or in beautifying your immediate environment. Social affairs proceed favorably. Avoid temptation in shopping or eating.
+Venus - Mercury|conjunction|Y|You find new ways to express love. Aesthetic concerns interest you more than complex business dealings.
+Venus - Venus|conjunction|Y|This period favors partnerships and sensuality. Socialize--moderately. This is a good time for redecorating.
+Venus - Mars|conjunction|Y|Desires and pleasure are important. Be assertive but not obnoxious. Vent excess energy through energized creativity such as dancing.
+Venus - Jupiter|conjunction|Y|Seek out friends and people you like. Serious activity may be a waste of time. A small financial windfall is possible. You have refined, luxurious tastes.
+Venus - Saturn|conjunction|Y|You are subdued. You should examine the practical side of your relationships now.
+Venus - Uranus|conjunction|Y|'The key phrase for today is 'new and different'. You feel the need for more freedom in relationships. You may suddenly meet someone who is totally different from others in your life.'
+Venus - Neptune|conjunction|Y|Your sense of imagery helps you to create a rare vision. You may also cast a partner or a lover in an unrealistic light. Enjoy today's creative influence, but ground your visions in reality.
+Venus - Pluto|conjunction|Y|Increased passion helps to affirm your commitment to an existing or potential partner. Remember that others require personal space as well as nurturing. Maintain balance in all relationships.
+Venus - Midheaven|conjunction|Y|Your social graces shine. Your creative pursuits may reach the public eye. Plan business meetings or social events.
+Venus - Ascendant|opposition|Y|You and your partner(s) feel closer now. Partners realize how important they are to each other. Postpone sensitive negotiations as you are too willing to concede crucial points. This is a good time to initiate or formalize relationships.
+Venus - Sun|opposition|Y|Now is the time to appreciate your relationships. Shaky commitments become difficult. Acknowledge love and assistance.
+Venus - Moon|opposition|Y|You desire all forms of intense emotional contact with others, even cantankerous people. Excessive desires trigger binges. Remember the after-effects of overindulgence.
+Venus - Mercury|opposition|Y|This is a pleasant day. Postpone all tasks requiring patience and discipline. Overindulgence may upset your digestive system.
+Venus - Venus|opposition|Y|Avoid tasks or activities which require discipline or commitment. Try not to give in on crucial matters. Delay negotiations. Relax.
+Venus - Mars|opposition|Y|You may be feeling sexy but your partner may not be. Remember to consider your partner's needs and desires. Creative pursuits are favored.
+Venus - Jupiter|opposition|Y|You lack discipline. Avoid shopping trips! Your appetite is bigger than your stomach or pocketbook.
+Venus - Saturn|opposition|Y|Warm feelings wane. Your social position is less than ideal. Spend time alone to appreciate the importance of giving and receiving affection.
+Venus - Uranus|opposition|Y|Impulsive, inconsiderate behavior threatens relationships. Problems inevitably surface. Address your problems without destroying alliances.
+Venus - Neptune|opposition|Y|You think your relationships are better than they truly are. You may think you have found your romantic ideal, but give yourself a few days to think it over.
+Venus - Pluto|opposition|Y|Relationship issues may reach a breaking point. Abstain from using force and manipulation, but don't accede to unreasonable partnership demands. Air your differences calmly.
+Venus - Midheaven|opposition|Y|Appreciate how closely your domestic life is related to your career. Meditate on the importance of your personal life. Try to relax during this period.
+Venus - Ascendant|trine|Y|You are open and generous. Spend quiet time with loved ones. Avoid strenuous activity. Despite your interest in having fun, you can encounter worthwhile investments, especially in art.
+Venus - Sun|trine|Y|Though your thoughts are on pleasure you could also present yourself favorably to loved ones or potential clients. You enjoy sharing with others. Watch overindulgence.
+Venus - Moon|trine|Y|You exude pleasant feelings. Relations with women improve. You enjoy being with others and they enjoy being with you, but you don't feel like working.
+Venus - Mercury|trine|Y|You can find the words to convey pleasant thoughts even though you are not in a serious mood. This influence particularly favors salespeople.
+Venus - Venus|trine|Y|Your imagination and aesthetic sensibilities improve, making this a pleasant but not a terribly productive time.
+Venus - Mars|trine|Y|Express your desires. If love is on your agenda this is the time to pursue it. Your creativity improves.
+Venus - Jupiter|trine|Y|Blend diplomacy with optimistic confidence. You are attracted to groups and group activity. Throw a party or find time to relax. Do not schedule strenuous tasks or assignments.
+Venus - Saturn|trine|Y|Highlight the practical aspect of relationships. You are at peace with your partners' earthier elements. Find creative ways to conserve resources and consolidate your alliances.
+Venus - Uranus|trine|Y|Embrace new people or situations. You may begin an interest in experimental art now. Enliven an existing relationship or pursue a new romantic partner.
+Venus - Neptune|trine|Y|You would rather seek spiritual fulfillment than pursue worldly ambitions. You help others without expecting anything in return. Do something for your partner that comes from the heart.
+Venus - Pluto|trine|Y|Love or creativity comes from your heart. You are soul-oriented now. Romance has a fated quality.
+Venus - Midheaven|trine|Y|Give your time and resources freely to those you love and your generosity will be returned. Discuss relationship problems openly.
+Venus - Ascendant|square|Y|Avoid duties or situations requiring excessive discipline, which you lack now. Though you would rather have fun, do not neglect important responsibilities.
+Venus - Sun|square|Y|You seek easy solutions. Delay important projects. Avoid frivolous purchases. Watch your diet.
+Venus - Moon|square|Y|Love problems stem from too much intimacy. Everyone needs space in a relationship. Bodily fluids may cause discomfort.
+Venus - Mercury|square|Y|You lack mental discipline. You are in the mood for light conversation and entertainment instead of hard work.
+Venus - Venus|square|Y|Avoid critical conflicts as you lack the will to defend yourself. Resist expensive temptations.
+Venus - Mars|square|Y|Sexual obsession may cause resentment. Arguments may develop over the degree of sharing within relationships.
+Venus - Jupiter|square|Y|You are in a good mood now, but you must guard against overdoing yourself. Diets or resolutions are hard to maintain. Avoid letting desires control your decisions.
+Venus - Saturn|square|Y|Examine the realities of your relationships. You may have only heard what you wanted to from your partners or loved ones. Now you perceive certain faults not evident before. Maintain a detached attitude.
+Venus - Uranus|square|Y|You crave more excitement in your love life. You may flirt with someone who fulfills this need for excitement. Obviously careless flirtation will cause problems with your partners. New forms of art interest you.
+Venus - Neptune|square|Y|You need to weigh relationships and creative pursuits against reality. Expect resentment or rejection when you or your partner cannot fulfill idealistic expectations.
+Venus - Pluto|square|Y|All relationships require change to maintain stability. If you have trouble accepting inevitable change expect frustrating stalemates and insurmountable problems. Accept change and do not force your will on your partners.
+Venus - Midheaven|square|Y|Make it clear to someone that you admire them and need their support. Remember that love requires give and take. Attempts to command love result in rejection or embarrassment.
+Venus - Ascendant|sextile|Y|Enjoy yourself and seek new acquaintances. Spend time with family or friends. This is a good time to socialize.
+Venus - Sun|sextile|Y|Romance comes easily. Relax and be comfortable. You make new friends by being yourself. Redecorate your home or office.
+Venus - Moon|sextile|Y|Spend time in familiar surroundings with friends or loved ones. You attract others by sharing your emotions.
+Venus - Mercury|sextile|Y|This is a good time for warm, intimate conversations. Your charming nature helps in sales or public relations. You easily express your feelings to those you admire.
+Venus - Venus|sextile|Y|You seek comfort and accommodation. Do not schedule difficult tasks. Social events are favored. With discipline, money matters proceed well.
+Venus - Mars|sextile|Y|Balance sexual desire with your ability to attract. This is a good period for pursuing love interests. Creative endeavors and sales also go well.
+Venus - Jupiter|sextile|Y|You willingly cooperate with others because you appreciate how shared goals benefit long-range plans. If you avoid the temptation to overindulge in various pleasures you can take advantage of favorable business opportunities.
+Venus - Saturn|sextile|Y|Fulfill inevitable relationship responsibilities. You may reap material gain through loved ones or business partners. Implement creative ideas.
+Venus - Uranus|sextile|Y|You express your social graces differently now. Meet new people, even if you are not thinking about planning a long-term commitment. If you do begin a permanent relationship, expect the unexpected.
+Venus - Neptune|sextile|Y|You are sympathetic and creative, but shy away from harsh reality. You enjoy cooperating with others.
+Venus - Pluto|sextile|Y|You gain significant insights into people close to you. You could meet someone who has a dramatic effect on your life. Your relationships intensify and you are distracted by shallow associations.
+Venus - Midheaven|sextile|Y|Appreciate the importance of your significant relationships. Cooperate with others. Creative activity is favored.

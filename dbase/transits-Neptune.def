@@ -1,0 +1,4 @@
+Transit,LIST,1,Neptune - Ascendant:Neptune - Sun:Neptune - Moon:Neptune - Mercury:Neptune - Venus:Neptune - Mars:Neptune - Jupiter:Neptune - Saturn:Neptune - Uranus:Neptune - Neptune:Neptune - Pluto:Neptune - Midheaven
+Aspect,LIST,1,conjunction:opposition:trine:square:sextile
+Active,LOGICAL,1,Y:N
+Comments,TEXT,50:2

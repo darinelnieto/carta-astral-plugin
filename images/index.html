@@ -1,0 +1,2340 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Tetrabyblos</title>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="js/jquery-ui.css"/>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather"/>
+<script src="js/moment.js"></script>
+<script src="js/moment-timezone-with-data.js"></script>
+<script type='text/javascript' src='js/ephemeris-0.1.0.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/astro.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/ayanamansa.js'></script>
+<script src="js/astrochart.js"></script>
+<script src="js/canvg.js"></script>
+<script src="js/vedic.js"></script>
+
+<style>
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #f44336;} /* Red */ 
+.button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
+.button5 {background-color: #555555;} /* Black */
+#paper{
+background:#ffffff;
+}
+@font-face {
+font-family: 'HamburgSymbols';
+src: url('css/HamburgSymbols.ttf');
+}
+.ui-autocomplete.ui-widget {
+  font-family:"Merriweather", Merriweather, serif;
+  font-size: 15px;
+}
+.ui-autocomplete-loading {
+    background: white url("http://perfil.top/login/astrochart/progress.gif") right center no-repeat;
+  }
+.ui-widget {
+  font-family:"Merriweather", Merriweather, serif;
+  font-size: 15px;
+}
+label {
+font-family: Merriweather;
+font-size: 13px;
+}
+input {
+font-family: Merriweather;
+font-size: 13px;
+}
+select {
+font-family: Merriweather;
+font-size: 13px;
+}
+.almg {
+background: white;
+border: 0px solid black;
+font-family: Merriweather;
+font-size: 15px;
+}
+.almg1 {
+background: white;
+border: 0px solid black;
+font-family: Merriweather;
+font-size: 15px;
+width: 250px;
+}
+.almg2 {
+background: white;
+border: 0px solid black;
+font-family: Verdana;
+font-size: 15px;
+width: 350px;
+}
+</style>
+
+
+</head>
+
+<body>
+	
+<script type="text/javascript">
+    function validateForm() {
+        var x = document.myForm.year.value;
+        var y = document.myForm.era.value;
+        var v = x*y;
+        if (v < -10000 || v > 10000) {
+            alert("Year out of range (only from 10000 B.C. to 10000 A.D.).");
+            return false;
+        } else {
+            return true;
+        }
+    }
+function convertDMS( lat, lng , tz , loc ) { 
+        var convertLat = Math.abs(lat);
+        var LatDeg = Math.floor(convertLat);
+        var LatMin = (Math.floor((convertLat - LatDeg) * 60));
+        var LatCardinal = ((lat > 0) ? 1 : -1);         
+        var convertLng = Math.abs(lng);
+        var LngDeg = Math.floor(convertLng);
+        var LngMin = (Math.floor((convertLng - LngDeg) * 60));
+        var LngCardinal = ((lng > 0) ? 1 : -1); 
+
+        document.getElementById("lat_deg").value=LatDeg;
+        document.getElementById("lat_min").value=LatMin;
+        document.getElementById("long_deg").value=LngDeg;
+        document.getElementById("long_min").value=LngMin;
+        document.getElementById("ns").value=LatCardinal;
+        document.getElementById("ew").value=LngCardinal;
+        document.getElementById("timezone").value=tz;
+        document.getElementById("full_name").value=loc;
+        document.getElementById("zoneoffset").value="99";
+return;        
+}
+$(function () {
+    var getData = function (request, response) {
+        $.getJSON(
+            "data/getautocomplete.php?jsonp=?",
+            {
+             term: request.term,
+             country_id: myForm.country_id.value,
+             atlas: myForm.atlas.value
+            },            
+            function (data) {
+                response(data);
+            });
+    };
+    var selectItem = function (event, ui) {
+        $("#cname").val(ui.item.value);
+        $("#full_name").val(ui.item.label);
+        $("#latitude").val(ui.item.latitude);
+        $("#longitude").val(ui.item.longitude);
+        $("#timezone").val(ui.item.timezone);
+        convertDMS( ui.item.latitude, ui.item.longitude, ui.item.timezone , ui.item.label );
+        return false;
+    } 
+    $("#cname").autocomplete({
+        source: getData,
+        select: selectItem,
+        minLength: 3,
+        change: function() {
+            /* */
+        }
+    });
+});</script>
+
+<span style="font-family: HamburgSymbols; color: #FFF; font-weight: bold;visibility: hidden;"></span> 
+ 
+
+<div id="main_astro_div" style="width:700px; margin:0 auto;font-family: Merriweather; font-size: 12px; background-color: white; border-radius: 25px;">
+
+<center><h1>Natal Chart Calculation</h1></center>
+
+<table style="width: 600px;border-collapse: separate;border-spacing: 15px;" class="almg">
+<tr>
+<td class="almg1"  valign="top">Name</td>
+<td class="almg2">
+<input type="text" name="name" id="name" class="regular-text" value="My Name..." style="width: 300px;">
+</td>
+</tr>
+<tr>
+<td class="almg1" valign="top">Birth Date</td>
+<td class="almg2">
+<p style="text-align: top">
+<label>Time</label><br>
+<select name="hour" id="hour" class="regular-text">
+      <option value="0" select>00</option>
+      <option value="1">01</option>
+      <option value="2">02</option>
+      <option value="3">03</option>
+      <option value="4">04</option>
+      <option value="5">05</option>
+      <option value="6">06</option>
+      <option value="7">07</option>
+      <option value="8">08</option>
+      <option value="9">09</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
+      <option value="21">21</option>
+      <option value="22">22</option>
+      <option value="23">23</option>
+      </select> hours <select name="minute" id="minute" class="regular-text">
+      <option value="0" select>00</option>
+      <option value="1">01</option>
+      <option value="2">02</option>
+      <option value="3">03</option>
+      <option value="4">04</option>
+      <option value="5">05</option>
+      <option value="6">06</option>
+      <option value="7">07</option>
+      <option value="8">08</option>
+      <option value="9">09</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
+      <option value="21">21</option>
+      <option value="22">22</option>
+      <option value="23">23</option>
+      <option value="24">24</option>
+      <option value="25">25</option>
+      <option value="26">26</option>
+      <option value="27">27</option>
+      <option value="28">28</option>
+      <option value="29">29</option>
+      <option value="30">30</option>
+      <option value="31">31</option>
+      <option value="32">32</option>
+      <option value="33">33</option>
+      <option value="34">34</option>
+      <option value="35">35</option>
+      <option value="36">36</option>
+      <option value="37">37</option>
+      <option value="38">38</option>
+      <option value="39">39</option>
+      <option value="40">40</option>
+      <option value="41">41</option>
+      <option value="42">42</option>
+      <option value="43">43</option>
+      <option value="44">44</option>
+      <option value="45">45</option>
+      <option value="46">46</option>
+      <option value="47">47</option>
+      <option value="48">48</option>
+      <option value="49">49</option>
+      <option value="50">50</option>
+      <option value="51">51</option>
+      <option value="52">52</option>
+      <option value="53">53</option>
+      <option value="54">54</option>
+      <option value="55">55</option>
+      <option value="56">56</option>
+      <option value="57">57</option>
+      <option value="58">58</option>
+      <option value="59">59</option>  
+</select> min.
+<br><br>
+<label>Day and Month</label><br>
+<select name="day" id="day" class="regular-text">
+      <option value="1" select>01</option>
+      <option value="2">02</option>
+      <option value="3">03</option>
+      <option value="4">04</option>
+      <option value="5">05</option>
+      <option value="6">06</option>
+      <option value="7">07</option>
+      <option value="8">08</option>
+      <option value="9">09</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
+      <option value="21">21</option>
+      <option value="22">22</option>
+      <option value="23">23</option>
+      <option value="24">24</option>
+      <option value="25">25</option>
+      <option value="26">26</option>
+      <option value="27">27</option>
+      <option value="28">28</option>
+      <option value="29">29</option>
+      <option value="30">30</option>
+      <option value="31">31</option>
+</select>&nbsp;&nbsp;<select name="month" id="month" class="regular-text">
+      <option value="1" select>January</option>
+      <option value="2">February</option>
+      <option value="3">March</option>
+      <option value="4">April</option>
+      <option value="5">May</option>
+      <option value="6">June</option>
+      <option value="7">July</option>
+      <option value="8">August</option>
+      <option value="9">September</option>
+      <option value="10">October</option>
+      <option value="11">November</option>
+      <option value="12">December</option>
+</select>
+<br><br>
+<label for="year">Year</label><br>
+<input type="text" name="year" id="year" class="regular-text" value="2000" style="width: 100px;">
+<br>
+<label for="era">Era</label><br>
+<select name="era" id="era" class="regular-text">
+<option value="1" select>AD - Anno Domini</option>
+<option value="-1">BC - Before Crist</option>
+</select>
+
+<input type="hidden" name="era" id="era" value="1">
+</p>
+</td>
+</tr>
+
+<tr>
+<td class="almg1"  valign="top">Location</td>
+<td class="almg2">
+<div class="ui-widget" style="width: 350px"><label>City:         
+<br><input id="cname"></div><br>
+<label>Country</label>
+<select name="country_id" id="country_id" class="regular-text" onchange="javascript:document.myForm.cname.value=''">
+<option value = "AF" select>Afghanistan</option>
+<option value = "AX">Aland Islands</option>
+<option value = "AL">Albania</option>
+<option value = "DZ">Algeria</option>
+<option value = "AS">American Samoa</option>
+<option value = "AD">Andorra</option>
+<option value = "AO">Angola</option>
+<option value = "AI">Anguilla</option>
+<option value = "AQ">Antarctica</option>
+<option value = "AG">Antigua and Barbuda</option>
+<option value = "AR">Argentina</option>
+<option value = "AM">Armenia</option>
+<option value = "AW">Aruba</option>
+<option value = "AU">Australia</option>
+<option value = "AT">Austria</option>
+<option value = "AZ">Azerbaijan</option>
+<option value = "BS">Bahamas</option>
+<option value = "BH">Bahrain</option>
+<option value = "BD">Bangladesh</option>
+<option value = "BB">Barbados</option>
+<option value = "BY">Belarus</option>
+<option value = "BE">Belgium</option>
+<option value = "BZ">Belize</option>
+<option value = "BJ">Benin</option>
+<option value = "BM">Bermuda</option>
+<option value = "BT">Bhutan</option>
+<option value = "BO">Bolivia</option>
+<option value = "BQ">Bonaire, Saint Eustatius and Saba </option>
+<option value = "BA">Bosnia and Herzegovina</option>
+<option value = "BW">Botswana</option>
+<option value = "BV">Bouvet Island</option>
+<option value = "BR">Brazil</option>
+<option value = "IO">British Indian Ocean Territory</option>
+<option value = "VG">British Virgin Islands</option>
+<option value = "BN">Brunei</option>
+<option value = "BG">Bulgaria</option>
+<option value = "BF">Burkina Faso</option>
+<option value = "BI">Burundi</option>
+<option value = "KH">Cambodia</option>
+<option value = "CM">Cameroon</option>
+<option value = "CA">Canada</option>
+<option value = "CV">Cape Verde</option>
+<option value = "KY">Cayman Islands</option>
+<option value = "CF">Central African Republic</option>
+<option value = "TD">Chad</option>
+<option value = "CL">Chile</option>
+<option value = "CN">China</option>
+<option value = "CX">Christmas Island</option>
+<option value = "CC">Cocos Islands</option>
+<option value = "CO">Colombia</option>
+<option value = "KM">Comoros</option>
+<option value = "CK">Cook Islands</option>
+<option value = "CR">Costa Rica</option>
+<option value = "HR">Croatia</option>
+<option value = "CU">Cuba</option>
+<option value = "CW">Curacao</option>
+<option value = "CY">Cyprus</option>
+<option value = "CZ">Czech Republic</option>
+<option value = "CD">Democratic Republic of the Congo</option>
+<option value = "DK">Denmark</option>
+<option value = "DJ">Djibouti</option>
+<option value = "DM">Dominica</option>
+<option value = "DO">Dominican Republic</option>
+<option value = "TL">East Timor</option>
+<option value = "EC">Ecuador</option>
+<option value = "EG">Egypt</option>
+<option value = "SV">El Salvador</option>
+<option value = "GQ">Equatorial Guinea</option>
+<option value = "ER">Eritrea</option>
+<option value = "EE">Estonia</option>
+<option value = "ET">Ethiopia</option>
+<option value = "FK">Falkland Islands</option>
+<option value = "FO">Faroe Islands</option>
+<option value = "FJ">Fiji</option>
+<option value = "FI">Finland</option>
+<option value = "FR">France</option>
+<option value = "GF">French Guiana</option>
+<option value = "PF">French Polynesia</option>
+<option value = "TF">French Southern Territories</option>
+<option value = "GA">Gabon</option>
+<option value = "GM">Gambia</option>
+<option value = "GE">Georgia</option>
+<option value = "DE">Germany</option>
+<option value = "GH">Ghana</option>
+<option value = "GI">Gibraltar</option>
+<option value = "GR">Greece</option>
+<option value = "GL">Greenland</option>
+<option value = "GD">Grenada</option>
+<option value = "GP">Guadeloupe</option>
+<option value = "GU">Guam</option>
+<option value = "GT">Guatemala</option>
+<option value = "GG">Guernsey</option>
+<option value = "GN">Guinea</option>
+<option value = "GW">Guinea-Bissau</option>
+<option value = "GY">Guyana</option>
+<option value = "HT">Haiti</option>
+<option value = "HM">Heard Island and McDonald Islands</option>
+<option value = "HN">Honduras</option>
+<option value = "HK">Hong Kong</option>
+<option value = "HU">Hungary</option>
+<option value = "IS">Iceland</option>
+<option value = "IN">India</option>
+<option value = "ID">Indonesia</option>
+<option value = "IR">Iran</option>
+<option value = "IQ">Iraq</option>
+<option value = "IE">Ireland</option>
+<option value = "IM">Isle of Man</option>
+<option value = "IL">Israel</option>
+<option value = "IT">Italy</option>
+<option value = "CI">Ivory Coast</option>
+<option value = "JM">Jamaica</option>
+<option value = "JP">Japan</option>
+<option value = "JE">Jersey</option>
+<option value = "JO">Jordan</option>
+<option value = "KZ">Kazakhstan</option>
+<option value = "KE">Kenya</option>
+<option value = "KI">Kiribati</option>
+<option value = "XK">Kosovo</option>
+<option value = "KW">Kuwait</option>
+<option value = "KG">Kyrgyzstan</option>
+<option value = "LA">Laos</option>
+<option value = "LV">Latvia</option>
+<option value = "LB">Lebanon</option>
+<option value = "LS">Lesotho</option>
+<option value = "LR">Liberia</option>
+<option value = "LY">Libya</option>
+<option value = "LI">Liechtenstein</option>
+<option value = "LT">Lithuania</option>
+<option value = "LU">Luxembourg</option>
+<option value = "MO">Macao</option>
+<option value = "MK">Macedonia</option>
+<option value = "MG">Madagascar</option>
+<option value = "MW">Malawi</option>
+<option value = "MY">Malaysia</option>
+<option value = "MV">Maldives</option>
+<option value = "ML">Mali</option>
+<option value = "MT">Malta</option>
+<option value = "MH">Marshall Islands</option>
+<option value = "MQ">Martinique</option>
+<option value = "MR">Mauritania</option>
+<option value = "MU">Mauritius</option>
+<option value = "YT">Mayotte</option>
+<option value = "MX">Mexico</option>
+<option value = "FM">Micronesia</option>
+<option value = "MD">Moldova</option>
+<option value = "MC">Monaco</option>
+<option value = "MN">Mongolia</option>
+<option value = "ME">Montenegro</option>
+<option value = "MS">Montserrat</option>
+<option value = "MA">Morocco</option>
+<option value = "MZ">Mozambique</option>
+<option value = "MM">Myanmar</option>
+<option value = "NA">Namibia</option>
+<option value = "NR">Nauru</option>
+<option value = "NP">Nepal</option>
+<option value = "NL">Netherlands</option>
+<option value = "AN">Netherlands Antilles</option>
+<option value = "NC">New Caledonia</option>
+<option value = "NZ">New Zealand</option>
+<option value = "NI">Nicaragua</option>
+<option value = "NE">Niger</option>
+<option value = "NG">Nigeria</option>
+<option value = "NU">Niue</option>
+<option value = "NF">Norfolk Island</option>
+<option value = "KP">North Korea</option>
+<option value = "MP">Northern Mariana Islands</option>
+<option value = "NO">Norway</option>
+<option value = "OM">Oman</option>
+<option value = "PK">Pakistan</option>
+<option value = "PW">Palau</option>
+<option value = "PS">Palestinian Territory</option>
+<option value = "PA">Panama</option>
+<option value = "PG">Papua New Guinea</option>
+<option value = "PY">Paraguay</option>
+<option value = "PE">Peru</option>
+<option value = "PH">Philippines</option>
+<option value = "PN">Pitcairn</option>
+<option value = "PL">Poland</option>
+<option value = "PT">Portugal</option>
+<option value = "PR">Puerto Rico</option>
+<option value = "QA">Qatar</option>
+<option value = "CG">Republic of the Congo</option>
+<option value = "RE">Reunion</option>
+<option value = "RO">Romania</option>
+<option value = "RU">Russia</option>
+<option value = "RW">Rwanda</option>
+<option value = "BL">Saint Barthelemy</option>
+<option value = "SH">Saint Helena</option>
+<option value = "KN">Saint Kitts and Nevis</option>
+<option value = "LC">Saint Lucia</option>
+<option value = "MF">Saint Martin</option>
+<option value = "PM">Saint Pierre and Miquelon</option>
+<option value = "VC">Saint Vincent and the Grenadines</option>
+<option value = "WS">Samoa</option>
+<option value = "SM">San Marino</option>
+<option value = "ST">Sao Tome and Principe</option>
+<option value = "SA">Saudi Arabia</option>
+<option value = "SN">Senegal</option>
+<option value = "RS">Serbia</option>
+<option value = "CS">Serbia and Montenegro</option>
+<option value = "SC">Seychelles</option>
+<option value = "SL">Sierra Leone</option>
+<option value = "SG">Singapore</option>
+<option value = "SX">Sint Maarten</option>
+<option value = "SK">Slovakia</option>
+<option value = "SI">Slovenia</option>
+<option value = "SB">Solomon Islands</option>
+<option value = "SO">Somalia</option>
+<option value = "ZA">South Africa</option>
+<option value = "GS">South Georgia and the South Sandwich Islands</option>
+<option value = "KR">South Korea</option>
+<option value = "SS">South Sudan</option>
+<option value = "ES">Spain</option>
+<option value = "LK">Sri Lanka</option>
+<option value = "SD">Sudan</option>
+<option value = "SR">Suriname</option>
+<option value = "SJ">Svalbard and Jan Mayen</option>
+<option value = "SZ">Swaziland</option>
+<option value = "SE">Sweden</option>
+<option value = "CH">Switzerland</option>
+<option value = "SY">Syria</option>
+<option value = "TW">Taiwan</option>
+<option value = "TJ">Tajikistan</option>
+<option value = "TZ">Tanzania</option>
+<option value = "TH">Thailand</option>
+<option value = "TG">Togo</option>
+<option value = "TK">Tokelau</option>
+<option value = "TO">Tonga</option>
+<option value = "TT">Trinidad and Tobago</option>
+<option value = "TN">Tunisia</option>
+<option value = "TR">Turkey</option>
+<option value = "TM">Turkmenistan</option>
+<option value = "TC">Turks and Caicos Islands</option>
+<option value = "TV">Tuvalu</option>
+<option value = "VI">U.S. Virgin Islands</option>
+<option value = "UG">Uganda</option>
+<option value = "UA">Ukraine</option>
+<option value = "AE">United Arab Emirates</option>
+<option value = "GB">United Kingdom</option>
+<option value = "US">United States</option>
+<option value = "UM">United States Minor Outlying Islands</option>
+<option value = "UY">Uruguay</option>
+<option value = "UZ">Uzbekistan</option>
+<option value = "VU">Vanuatu</option>
+<option value = "VA">Vatican</option>
+<option value = "VE">Venezuela</option>
+<option value = "VN">Vietnam</option>
+<option value = "WF">Wallis and Futuna</option>
+<option value = "EH">Western Sahara</option>
+<option value = "YE">Yemen</option>
+<option value = "ZM">Zambia</option>
+<option value = "ZW">Zimbabwe</option>
+</select>
+<br>
+<!-- <label>Database to use:</label><br>
+<select name="atlas" id="atlas" class="regular-text">
+<option value="0" selected="selected">Use simple database (faster)</option>
+<option value="1">Use extended database (slower)</option>
+</select>
+-->
+<input type="hidden" name="atlas" id="atlas" value="0">
+</td>
+</tr>
+
+<tr>
+<td class="almg1"  valign="top">Time Zone</td>
+<td class="almg2">
+<select name="zoneoffset" id="zoneoffset" class="regular-text">
+<option value="99" selected="selected"> Auto detect from Location </option>
+<option value="0">Greenwich Mean Time - GMT or UT</option>
+<option value="-12">GMT -12:00 hrs - IDLW</option><option value="-11">GMT -11:00 hrs - BET or NT</option>
+<option value="-10.5">GMT -10:30 hrs - HST</option><option value="-10">GMT -10:00 hrs - AHST</option>
+<option value="-9.5">GMT -09:30 hrs - HDT or HWT</option>
+<option value="-9">GMT -09:00 hrs - YST or AHDT or AHWT</option>
+<option value="-8">GMT -08:00 hrs - PST or YDT or YWT</option>
+<option value="-7">GMT -07:00 hrs - MST or PDT or PWT</option>
+<option value="-6">GMT -06:00 hrs - CST or MDT or MWT</option>
+<option value="-5">GMT -05:00 hrs - EST or CDT or CWT</option>
+<option value="-4">GMT -04:00 hrs - AST or EDT or EWT</option>
+<option value="-3.5">GMT -03:30 hrs - NST</option>
+<option value="-3">GMT -03:00 hrs - BZT2 or AWT</option>
+<option value="-2">GMT -02:00 hrs - AT</option>
+<option value="-1">GMT -01:00 hrs - WAT</option>
+
+<option value="1">GMT +01:00 hrs - CET or MET or BST</option>
+<option value="2">GMT +02:00 hrs - EET or CED or MED or BDST or BWT</option>
+<option value="3">GMT +03:00 hrs - BAT or EED</option>
+<option value="3.5">GMT +03:30 hrs - IT</option>
+<option value="4">GMT +04:00 hrs - USZ3</option>
+<option value="5">GMT +05:00 hrs - USZ4</option>
+<option value="5.5">GMT +05:30 hrs - IST</option>
+<option value="6">GMT +06:00 hrs - USZ5</option>
+<option value="6.5">GMT +06:30 hrs - NST</option>
+<option value="7">GMT +07:00 hrs - SST or USZ6</option>
+<option value="7.5">GMT +07:30 hrs - JT</option>
+<option value="8">GMT +08:00 hrs - AWST or CCT</option>
+<option value="8.5">GMT +08:30 hrs - MT</option>
+<option value="9">GMT +09:00 hrs - JST or AWDT</option>
+<option value="9.5">GMT +09:30 hrs - ACST or SAT or SAST</option>
+<option value="10">GMT +10:00 hrs - AEST or GST</option>
+<option value="10.5">GMT +10:30 hrs - ACDT or SDT or SAD</option>
+<option value="11">GMT +11:00 hrs - UZ10 or AEDT</option>
+<option value="11.5">GMT +11:30 hrs - NZ</option>
+<option value="12">GMT +12:00 hrs - NZT or IDLE</option>
+<option value="12.5">GMT +12:30 hrs - NZS</option>
+<option value="13">GMT +13:00 hrs - NZST</option>
+</select>
+
+</td>
+</tr>
+
+<tr>
+<td class="almg1"  valign="top">Coordinates</td>
+<td class="almg2">
+<p>
+<select name="lat_deg" id="lat_deg" class="regular-text">
+<option value = "0">0</option>
+<option value = "1">1</option>
+<option value = "2">2</option>
+<option value = "3">3</option>
+<option value = "4">4</option>
+<option value = "5">5</option>
+<option value = "6">6</option>
+<option value = "7">7</option>
+<option value = "8">8</option>
+<option value = "9">9</option>
+<option value = "10">10</option>
+<option value = "11">11</option>
+<option value = "12">12</option>
+<option value = "13">13</option>
+<option value = "14">14</option>
+<option value = "15">15</option>
+<option value = "16">16</option>
+<option value = "17">17</option>
+<option value = "18">18</option>
+<option value = "19">19</option>
+<option value = "20">20</option>
+<option value = "21">21</option>
+<option value = "22">22</option>
+<option value = "23">23</option>
+<option value = "24">24</option>
+<option value = "25">25</option>
+<option value = "26">26</option>
+<option value = "27">27</option>
+<option value = "28">28</option>
+<option value = "29">29</option>
+<option value = "30">30</option>
+<option value = "31">31</option>
+<option value = "32">32</option>
+<option value = "33">33</option>
+<option value = "34">34</option>
+<option value = "35">35</option>
+<option value = "36">36</option>
+<option value = "37">37</option>
+<option value = "38">38</option>
+<option value = "39">39</option>
+<option value = "40">40</option>
+<option value = "41">41</option>
+<option value = "42">42</option>
+<option value = "43">43</option>
+<option value = "44">44</option>
+<option value = "45">45</option>
+<option value = "46">46</option>
+<option value = "47">47</option>
+<option value = "48">48</option>
+<option value = "49">49</option>
+<option value = "50">50</option>
+<option value = "51">51</option>
+<option value = "52">52</option>
+<option value = "53">53</option>
+<option value = "54">54</option>
+<option value = "55">55</option>
+<option value = "56">56</option>
+<option value = "57">57</option>
+<option value = "58">58</option>
+<option value = "59">59</option>
+<option value = "60">60</option>
+<option value = "61">61</option>
+<option value = "62">62</option>
+<option value = "63">63</option>
+<option value = "64">64</option>
+<option value = "65">65</option>
+<option value = "66">66</option>
+<option value = "67">67</option>
+<option value = "68">68</option>
+<option value = "69">69</option>
+<option value = "70">70</option>
+<option value = "71">71</option>
+<option value = "72">72</option>
+<option value = "73">73</option>
+<option value = "74">74</option>
+<option value = "75">75</option>
+<option value = "76">76</option>
+<option value = "77">77</option>
+<option value = "78">78</option>
+<option value = "79">79</option>
+<option value = "80">80</option>
+<option value = "81">81</option>
+<option value = "82">82</option>
+<option value = "83">83</option>
+<option value = "84">84</option>
+<option value = "85">85</option>
+<option value = "86">86</option>
+<option value = "87">87</option>
+<option value = "88">88</option>
+<option value = "89">89</option>
+<option value = "90">90</option>
+</select> degrees <select name="lat_min" id="lat_min" class="regular-text">
+<option value = "0">0</option>
+<option value = "1">1</option>
+<option value = "2">2</option>
+<option value = "3">3</option>
+<option value = "4">4</option>
+<option value = "5">5</option>
+<option value = "6">6</option>
+<option value = "7">7</option>
+<option value = "8">8</option>
+<option value = "9">9</option>
+<option value = "10">10</option>
+<option value = "11">11</option>
+<option value = "12">12</option>
+<option value = "13">13</option>
+<option value = "14">14</option>
+<option value = "15">15</option>
+<option value = "16">16</option>
+<option value = "17">17</option>
+<option value = "18">18</option>
+<option value = "19">19</option>
+<option value = "20">20</option>
+<option value = "21">21</option>
+<option value = "22">22</option>
+<option value = "23">23</option>
+<option value = "24">24</option>
+<option value = "25">25</option>
+<option value = "26">26</option>
+<option value = "27">27</option>
+<option value = "28">28</option>
+<option value = "29">29</option>
+<option value = "30">30</option>
+<option value = "31">31</option>
+<option value = "32">32</option>
+<option value = "33">33</option>
+<option value = "34">34</option>
+<option value = "35">35</option>
+<option value = "36">36</option>
+<option value = "37">37</option>
+<option value = "38">38</option>
+<option value = "39">39</option>
+<option value = "40">40</option>
+<option value = "41">41</option>
+<option value = "42">42</option>
+<option value = "43">43</option>
+<option value = "44">44</option>
+<option value = "45">45</option>
+<option value = "46">46</option>
+<option value = "47">47</option>
+<option value = "48">48</option>
+<option value = "49">49</option>
+<option value = "50">50</option>
+<option value = "51">51</option>
+<option value = "52">52</option>
+<option value = "53">53</option>
+<option value = "54">54</option>
+<option value = "55">55</option>
+<option value = "56">56</option>
+<option value = "57">57</option>
+<option value = "58">58</option>
+<option value = "59">59</option>
+</select> minutes <select name="ns" id="ns" class="regular-text">
+<option value="1">North</option>
+<option value="-1">South</option>
+</select> (Lat.)<br><br>
+<select name="long_deg" id="long_deg" class="regular-text">
+<option value = "0">0</option>
+<option value = "1">1</option>
+<option value = "2">2</option>
+<option value = "3">3</option>
+<option value = "4">4</option>
+<option value = "5">5</option>
+<option value = "6">6</option>
+<option value = "7">7</option>
+<option value = "8">8</option>
+<option value = "9">9</option>
+<option value = "10">10</option>
+<option value = "11">11</option>
+<option value = "12">12</option>
+<option value = "13">13</option>
+<option value = "14">14</option>
+<option value = "15">15</option>
+<option value = "16">16</option>
+<option value = "17">17</option>
+<option value = "18">18</option>
+<option value = "19">19</option>
+<option value = "20">20</option>
+<option value = "21">21</option>
+<option value = "22">22</option>
+<option value = "23">23</option>
+<option value = "24">24</option>
+<option value = "25">25</option>
+<option value = "26">26</option>
+<option value = "27">27</option>
+<option value = "28">28</option>
+<option value = "29">29</option>
+<option value = "30">30</option>
+<option value = "31">31</option>
+<option value = "32">32</option>
+<option value = "33">33</option>
+<option value = "34">34</option>
+<option value = "35">35</option>
+<option value = "36">36</option>
+<option value = "37">37</option>
+<option value = "38">38</option>
+<option value = "39">39</option>
+<option value = "40">40</option>
+<option value = "41">41</option>
+<option value = "42">42</option>
+<option value = "43">43</option>
+<option value = "44">44</option>
+<option value = "45">45</option>
+<option value = "46">46</option>
+<option value = "47">47</option>
+<option value = "48">48</option>
+<option value = "49">49</option>
+<option value = "50">50</option>
+<option value = "51">51</option>
+<option value = "52">52</option>
+<option value = "53">53</option>
+<option value = "54">54</option>
+<option value = "55">55</option>
+<option value = "56">56</option>
+<option value = "57">57</option>
+<option value = "58">58</option>
+<option value = "59">59</option>
+<option value = "60">60</option>
+<option value = "61">61</option>
+<option value = "62">62</option>
+<option value = "63">63</option>
+<option value = "64">64</option>
+<option value = "65">65</option>
+<option value = "66">66</option>
+<option value = "67">67</option>
+<option value = "68">68</option>
+<option value = "69">69</option>
+<option value = "70">70</option>
+<option value = "71">71</option>
+<option value = "72">72</option>
+<option value = "73">73</option>
+<option value = "74">74</option>
+<option value = "75">75</option>
+<option value = "76">76</option>
+<option value = "77">77</option>
+<option value = "78">78</option>
+<option value = "79">79</option>
+<option value = "80">80</option>
+<option value = "81">81</option>
+<option value = "82">82</option>
+<option value = "83">83</option>
+<option value = "84">84</option>
+<option value = "85">85</option>
+<option value = "86">86</option>
+<option value = "87">87</option>
+<option value = "88">88</option>
+<option value = "89">89</option>
+<option value = "90">90</option>
+<option value = "91">91</option>
+<option value = "92">92</option>
+<option value = "93">93</option>
+<option value = "94">94</option>
+<option value = "95">95</option>
+<option value = "96">96</option>
+<option value = "97">97</option>
+<option value = "98">98</option>
+<option value = "99">99</option>
+<option value = "100">100</option>
+<option value = "101">101</option>
+<option value = "102">102</option>
+<option value = "103">103</option>
+<option value = "104">104</option>
+<option value = "105">105</option>
+<option value = "106">106</option>
+<option value = "107">107</option>
+<option value = "108">108</option>
+<option value = "109">109</option>
+<option value = "110">110</option>
+<option value = "111">111</option>
+<option value = "112">112</option>
+<option value = "113">113</option>
+<option value = "114">114</option>
+<option value = "115">115</option>
+<option value = "116">116</option>
+<option value = "117">117</option>
+<option value = "118">118</option>
+<option value = "119">119</option>
+<option value = "120">120</option>
+<option value = "121">121</option>
+<option value = "122">122</option>
+<option value = "123">123</option>
+<option value = "124">124</option>
+<option value = "125">125</option>
+<option value = "126">126</option>
+<option value = "127">127</option>
+<option value = "128">128</option>
+<option value = "129">129</option>
+<option value = "130">130</option>
+<option value = "131">131</option>
+<option value = "132">132</option>
+<option value = "133">133</option>
+<option value = "134">134</option>
+<option value = "135">135</option>
+<option value = "136">136</option>
+<option value = "137">137</option>
+<option value = "138">138</option>
+<option value = "139">139</option>
+<option value = "140">140</option>
+<option value = "141">141</option>
+<option value = "142">142</option>
+<option value = "143">143</option>
+<option value = "144">144</option>
+<option value = "145">145</option>
+<option value = "146">146</option>
+<option value = "147">147</option>
+<option value = "148">148</option>
+<option value = "149">149</option>
+<option value = "150">150</option>
+<option value = "151">151</option>
+<option value = "152">152</option>
+<option value = "153">153</option>
+<option value = "154">154</option>
+<option value = "155">155</option>
+<option value = "156">156</option>
+<option value = "157">157</option>
+<option value = "158">158</option>
+<option value = "159">159</option>
+<option value = "160">160</option>
+<option value = "161">161</option>
+<option value = "162">162</option>
+<option value = "163">163</option>
+<option value = "164">164</option>
+<option value = "165">165</option>
+<option value = "166">166</option>
+<option value = "167">167</option>
+<option value = "168">168</option>
+<option value = "169">169</option>
+<option value = "170">170</option>
+<option value = "171">171</option>
+<option value = "172">172</option>
+<option value = "173">173</option>
+<option value = "174">174</option>
+<option value = "175">175</option>
+<option value = "176">176</option>
+<option value = "177">177</option>
+<option value = "178">178</option>
+<option value = "179">179</option>
+<option value = "180">180</option>
+</select> degrees <select name="long_min" id="long_min" class="regular-text">
+<option value = "0">0</option>
+<option value = "1">1</option>
+<option value = "2">2</option>
+<option value = "3">3</option>
+<option value = "4">4</option>
+<option value = "5">5</option>
+<option value = "6">6</option>
+<option value = "7">7</option>
+<option value = "8">8</option>
+<option value = "9">9</option>
+<option value = "10">10</option>
+<option value = "11">11</option>
+<option value = "12">12</option>
+<option value = "13">13</option>
+<option value = "14">14</option>
+<option value = "15">15</option>
+<option value = "16">16</option>
+<option value = "17">17</option>
+<option value = "18">18</option>
+<option value = "19">19</option>
+<option value = "20">20</option>
+<option value = "21">21</option>
+<option value = "22">22</option>
+<option value = "23">23</option>
+<option value = "24">24</option>
+<option value = "25">25</option>
+<option value = "26">26</option>
+<option value = "27">27</option>
+<option value = "28">28</option>
+<option value = "29">29</option>
+<option value = "30">30</option>
+<option value = "31">31</option>
+<option value = "32">32</option>
+<option value = "33">33</option>
+<option value = "34">34</option>
+<option value = "35">35</option>
+<option value = "36">36</option>
+<option value = "37">37</option>
+<option value = "38">38</option>
+<option value = "39">39</option>
+<option value = "40">40</option>
+<option value = "41">41</option>
+<option value = "42">42</option>
+<option value = "43">43</option>
+<option value = "44">44</option>
+<option value = "45">45</option>
+<option value = "46">46</option>
+<option value = "47">47</option>
+<option value = "48">48</option>
+<option value = "49">49</option>
+<option value = "50">50</option>
+<option value = "51">51</option>
+<option value = "52">52</option>
+<option value = "53">53</option>
+<option value = "54">54</option>
+<option value = "55">55</option>
+<option value = "56">56</option>
+<option value = "57">57</option>
+<option value = "58">58</option>
+<option value = "59">59</option>
+</select> minutes <select name="ew" id="ew" class="regular-text">
+<option value="1">East</option>
+<option value="-1">West</option>
+</select> (Long.)
+</p>
+</td>
+</tr>
+
+<tr>
+<td class="almg1"  valign="top">House System</td>
+<td class="almg2">
+<select name="h_sys" id="h_sys" class="regular-text">
+<option value="0" selected="selected">Placidus</option>
+<option value="13">Alcabitus</option>
+<option value="1">Campanus</option>
+<option value="11">Equal house - Asc.</option>
+<option value="2">Equal House - Whole sign</option>
+<option value="9">Koch</option>
+<option value="7">Morinus</option>
+<option value="8">Meridian</option>
+<option value="6">Porphyrius</option>
+<option value="14">Neo-Porphyrius</option>
+<option value="3">Vedic</option>
+<option value="5">Regiomontanus</option>
+<option value="4">Topocentric</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td class="almg1"  valign="top">Zodiac</td>
+<td class="almg2">
+<select name="zodiac" id="zodiac" class="regular-text">
+<option selected="selected" value="-1">Western - Tropical</option>
+<option value="0">Sidereal - Fagan/Bradley</option>
+<option value="1">Sidereal - Lahiri</option>
+<option value="2">Sidereal - DeLuce</option>
+<option value="3">Sidereal - B.V. Raman</option>
+<option value="4">Sidereal - Usha/Shashi</option>
+<option value="5">Sidereal - Krishnamurti</option>
+<option value="6">Sidereal - Djwhal Khool</option>
+<option value="7">Sidereal - Shri Yukteshwar</option>
+<option value="8">Sidereal - J.N. Bhasin</option>
+<option value="9">Sidereal - Hipparchos</option>
+<option value="10">Sidereal - Sassanian</option>
+<option value="12">Sidereal - J1900</option>
+<option value="13">Sidereal - B1950</option>
+</select>
+</td>
+</tr>
+<tr><td colspan=2 class="almg2">
+<center>
+<button name="create" id="create" style="width: 170px;font-family: Merriweather;font-size: 12px;" class="button button2" onclick="javascript:calc();"/>Calculate Chart</button>
+</center>
+</td>
+</tr>
+</table>
+<input id="timezone" name="timezone" type="hidden" value="UTC"/>
+<input id="latitude" name="latitude" type="hidden"/>
+<input id="longitude" name="longitude" type="hidden"/>
+<input id="full_name" name="full_name" type="hidden"/>
+<input id="lang" name="lang" type="hidden" value="en"/>
+<input type="hidden" name="submitted" value="TRUE"/>
+
+</div>
+
+<div id="myStart"></div>
+<br>
+<div id="myDIV2" style="width: 960px;margin: 0px auto;font-family:HamburgSymbols;"> 
+
+<div id="myName"></div>
+<table>
+<tr><td valign="top">
+<p>  	    
+<div id="paper" style="display: none;"></div>
+<canvas id="canvas" width="720px" height="720px"></canvas>
+<canvas id="canvas-grid" width="600px" height="600px"></canvas>       
+
+<div id="myData"></div>
+</p>
+</td><td valign="top">
+<p>
+<div id="myAspects"></div>
+</div>
+</p>
+<p style="text-align: center;">
+<br>
+<!-- <img id="signum" style="width: 200px;"> -->
+<div id="myPars"></div>
+</p>
+
+<p style="text-align: center;">
+<br>
+<div id="myDigs"></div>
+</p>
+
+<p style="text-align: center;">
+<br>
+<div id="myElements"></div>
+</p>
+
+
+</td></tr>
+<tr><td colspan=2>
+<div id="myReports"></div>
+</td>
+</tr>
+</table>
+
+<div id="myVedic"></div>
+
+
+
+<script type='text/javascript'>
+
+function jump(h){
+    var url = location.href;                 //Save down the URL without hash.
+    location.href = "#" + h;                 //Go to the target element.
+    history.replaceState(null,null,url);     //Don't like hashes. Changing it back.
+}
+
+function fixto360(ang){
+	while (ang < 0) {
+    ang += 360;
+  }
+  while (ang >= 360) {
+    ang -= 360;
+  }
+  return ang;
+}
+function fixtoRAD(ang){
+	var p2 = 2*(Math.PI);
+	while (ang < 0) {
+    ang += p2;
+  }
+  while (ang >= p2) {
+    ang -= p2;
+  }
+  return ang;
+}
+	
+	
+function cjd(d, m, y) { 
+    var a, j, l; 
+    var b; 
+    if (m < 3) { 
+        m += 12; 
+        y-- 
+    }
+    a = y / 100; 
+    b = parseFloat(30.6) * parseFloat(m + 1); 
+    l = parseInt(b); 
+    j = 365 * y + y / 4 + l + 2 - a + a / 4 + d; 
+    return j 
+}	
+function calculateB6(d, m, y) { 
+    var h, mt, s, h6, b6, timeZone; 
+    h = 12; 
+    mt = 0; 
+    s = 0; 
+    timeZone = 0; 
+    h6 = (h + mt / 60 + s / 3600 - (12 + timeZone)) / 24;
+    jd = cal_to_jd( 1, y, m, d, h6, mt, s ) ;
+    b6 = (cjd(d,m,y) - 694025 + h6) / 36525; 
+    return b6 ;
+}
+function ayanamsa_2(dd,mm,yy,asys){
+
+if(asys < 0){return 0;}
+
+switch(asys){
+ case 0:
+ //Lahiri
+ 	  t = calculateB6(dd, mm, yy);
+    return 22.460148 + 1.396042 * t + 3.08E-4 * t * t ;
+    break;
+ case 1:
+ //Raman      
+ 	  t = calculateB6(dd, mm, yy);
+    return 21.013972 + 1.398191 * t; 
+    break;
+ case 2:
+ //KP Old
+    return (yy + (mm * 30 + dd) / 365 - 297.3204723) * 50.2388475 / 3600 
+    break;
+ case 3:
+ //KP New
+    var newAya, kpayaOn1stJan, daysAfter1stJan, correctionForDays; 
+    kpayaOn1stJan = 22 + (1335 + (yy - 1900) * 50.2388475) / 3600 + (yy - 1900) * (yy - 1900) * 1.11E-4 / 3600; 
+    daysAfter1stJan = ((mm - 1) * 30 + (dd - 1)) / 3600; 
+    correctionForDays = daysAfter1stJan / 365 * (50.2388475 + 1.11E-4 * 20); 
+    newAya = kpayaOn1stJan + correctionForDays; 
+    return newAya ;
+    break;
+ case 4:
+ //Khullar
+    var dayAya, newAya, totalday; 
+    dayAya = 50.2388475 / 365.25; 
+    totalday = (yy - 291) * 365.25; 
+    totalday += mm * 30 + dd - 114; 
+    newAya = dayAya * totalday; 
+    newAya /= 3600; 
+    return newAya; 
+    break;
+  default:
+  //Lahiri
+ 	  t = calculateB6(dd, mm, yy);
+    return 22.460148 + 1.396042 * t + 3.08E-4 * t * t ;
+  }
+}
+
+function DMS(x){
+	x1 = Math.floor(x);
+	x2 = Math.floor((x - x1)*60);
+	if(x1 < 10){
+		x1 = "0"+x1;
+		}
+	if(x2 < 10){
+		x2 = "0"+x2;
+		}
+	var t = ""+x1+"º"+x2+"'";
+	return t;
+}	
+	
+
+	
+function calc(){ 
+	
+jump("myStart");
+/* main_astro_div */
+var x = document.getElementById("main_astro_div");
+//x.style.display = "none";
+//alert(document.getElementById("year").value);
+era = eval(document.getElementById("era").value);
+yy = eval(document.getElementById("year").value);
+m = eval(document.getElementById("month").value);
+dd = eval(document.getElementById("day").value);
+hh = eval(document.getElementById("hour").value);
+mm = eval(document.getElementById("minute").value);
+ss=0;
+
+//var birthdate = new Date();
+//birthdate.setFullYear(yy, m-1, dd,hh,mm,0);
+
+var nname = document.getElementById("name").value;
+var name_div = document.getElementById("myName");
+name_div.innerHTML = "<h1 style='font-family: Merriweather;text-align: center;'>" + nname + "</h1>";
+
+
+/*
+asys = eval(document.getElementById("zodiac").value);
+ay = -1*ayanamsa(dd,m,yy,asys);
+ay_rad = ay/Math.PI*180;
+*/
+
+l1 = eval(document.getElementById("long_deg").value);
+l2 = eval(document.getElementById("long_min").value);
+l3 = eval(document.getElementById("ew").value);
+longitude = (l1 + l2/60)*l3;
+//alert (longitude);
+
+l1 = eval(document.getElementById("lat_deg").value);
+l2 = eval(document.getElementById("lat_min").value);
+l3 = eval(document.getElementById("ns").value);
+latitude = (l1 + l2/60)*l3;
+
+tz = document.getElementById("timezone").value; //'Europe/Lisbon';
+
+
+
+
+if(yy < 3000 && yy > -3000){
+do_calc (era,yy,m,dd,hh,mm,ss,latitude,longitude,tz);  
+}
+
+}
+
+
+
+
+	function get_numbers(input) {
+    return input.match(/[0-9]+/g);
+  }
+
+
+
+function do_calc (era,yy,m,dd,hh,mm,ss,latitude,longitude,tz){
+	
+var yy_astro =	yy;
+var yy_tz = yy;
+if(era < 0){
+	yy_astro = 1 - yy;
+	yy_tz = 1000;
+}
+
+var off_choose = document.getElementById("zoneoffset").value;
+if (off_choose == 99){	
+var zone = moment.tz.zone(tz);
+var off = zone.parse(Date.UTC(yy_tz,m,dd,hh,mm,ss,0));
+} else {
+	off = -off_choose*60;
+}
+
+
+//document.write( "TEST: "+off + "<br><br>");
+var date = {year: yy_astro, month: m, day: dd, hours: hh, minutes: mm, seconds: 0, offset: off};
+/* End Code for function */
+
+/* Sun rise/set
+var a = moment.tz("2013-11-18 12:00", "GMT");
+var rise = MeeusSunMoon.sunrise(a, latitude, longitude);
+var set = MeeusSunMoon.sunset(a, latitude, longitude);
+alert(rise + " " + set);
+*/
+
+
+
+vera = "CE";
+if(era < 0){
+	vera = "BCE";
+}
+
+var jd = cal_to_jd( vera, yy, m, dd, hh, mm, 0 )+off/1440;
+var jd_birth = jd;
+
+var offset = off/1440;
+
+/*
+rise = calcSunriseUTC(jd_birth, latitude, longitude)/60;
+set = calcSunsetUTC(jd_birth, latitude, longitude)/60;
+j = (jd_birth-2451545.0)/36525.0
+noon = calcSolNoonUTC(j, longitude)/60;
+alert(rise + " " + noon + " " + set);
+*/
+
+asys = eval(document.getElementById("zodiac").value);
+var ay_default = -ayanamansa (jd, 1);
+
+if(asys >= 0){
+ay = -ayanamansa (jd, asys);
+ay_default = 0;
+} else {
+ay = 0;
+}
+
+$const.tlong = longitude; // longitude
+$const.glat = latitude; // latitude
+
+var QLongitude = longitude;
+
+$processor.init ();
+var nbody = new Array('sun','moon','mercury','venus','mars','jupiter','saturn','uranus','neptune','pluto','chiron');
+var arrayData = Array2D(11, 7);
+
+
+
+for(i=0;i<11;i++){
+var body = $moshier.body[nbody[i]];
+$processor.calc (date, body);
+//body.position.apparentLongitude
+//document.write(nbody[i] + ": " + $const.body.position.apparentLongitude + " " + $const.body.position.apparentLatitude + " " + $const.body.position.geocentricDistance + "<br>");
+arrayData[i][0] = fixto360($const.body.position.apparentLongitude+ay);
+arrayData[i][1] = $const.body.position.apparentLatitude;
+arrayData[i][2] = $const.body.position.apparent.dRA * 180/Math.PI/15;
+arrayData[i][3] = $const.body.position.apparent.dDec * 180/Math.PI;
+arrayData[i][4] = $const.body.position.geocentricDistance;
+arrayData[i][5] = $const.body.position.altaz.topocentric.azimuth;
+arrayData[i][6] = $const.body.position.altaz.topocentric.altitude;
+//arrayData[i][2] = $const.body.position.
+out = nbody[i] + ": ";
+for(i1=0;i1<7;i1++){
+out = out + arrayData[i][i1] + " ";
+}
+//document.write(out + "<br>");
+}
+//document.write("Delta T: " + date.delta + "<br><br>"); //68.2 segundos - Delta T
+//document.write("JD Internal: " + date.julian + "<br><br>");
+//document.write("LGMT: " + $const.body.position.altaz.dLocalApparentSiderialTime + "<br><br>"); //LST
+lgmt = $const.body.position.altaz.dLocalApparentSiderialTime; // + $const.tlong / 15.0;
+//document.write("Last: " + $const.body.position.altaz.lha * 24 + "<br><br>"); //LST
+//document.write("LGMT: " + date.gmst/15 + "<br><br>"); //LST Horas
+//document.write("Obl: " + $moshier.epsilon.eps * (45.0/Math.atan(1.0)) + "<br><br>"); //Obl. degrees
+
+
+/* SIGNUM 
+var sun_lon = arrayData[0][0];
+if(sun_lon < 0){sun_lon += 360;}
+var sig = Math.floor(sun_lon/30);
+var img = "signosnum/" + sig + ".jpg";
+//var outimg = document.getElementById('signum');
+$("#signum").attr('src', img);
+*/
+
+
+
+/* Moon Phases */
+var san_date = [];
+san_date = cal_meeus(jd);
+var phases = new Array();
+phases = PhaseHunt(san_date[0],san_date[1],san_date[2]);
+
+var SAN = 0;
+for(i=0;i<8;i=i+2){
+if(phases[i] < jd){
+SAN=phases[i];
+}
+}
+//alert(phases[0] + " " + san_date[1] + " " + SAN);
+
+
+san_date = cal_meeus(SAN);
+var date = {year: san_date[0], month: san_date[1], day: san_date[2], hours: 0, minutes: 0, seconds: 0, offset: 0};
+var body = $moshier.body['moon'];
+$processor.calc (date, body);
+var SAN_long = fixto360($const.body.position.apparentLongitude+ay);
+if(SAN_long < 0){SAN_long += 360;}
+
+/* End Moon Phases */
+
+
+var nodes = new Array();
+nodes = MoonNode(date.julian);
+nodes[0] += ay;
+nodes[1] += ay;
+nodes[2] += ay;
+
+//nodes = zzN(jd);
+
+for(i=0;i<4;i++){
+//document.write("Nodes : " + nodes[i] + "<br>");
+}
+
+//document.write("<br>");
+
+var jd1 = 2451545.2;
+var jd0 = Math.floor(jd1-0.5) + 0.5;
+//alert (jd1 + " " + jd0);
+jd1 = 2451544.9;
+jd0 = Math.floor(jd1-0.5) + 0.5;
+//alert (jd1 + " " + jd0);
+
+jd = jd_birth; //date.julian;
+
+h_sys = eval(document.getElementById("h_sys").value);
+
+var h = new Array();
+h = CalculateHouses(jd,longitude,latitude,h_sys);
+//alert(h[0]*(180/Math.PI));
+//h = zzv(jd,0,41,1);
+for(i=0;i<12;i++){
+h[i] += ay*(Math.PI/180);
+if(h[i] < 0){h[i] += 2*Math.PI;}
+//h[i] = fixtoRAD(h[i]);
+}
+
+
+var dataRadix = {
+			  	"planets":{"PFortunae":[36]},
+			  	"cusps":[]			
+			    };
+			    
+			    
+			    
+			    var SendData = new Array();
+			    var SendDataHouses = new Array();
+			    
+			    for(i=0;i<12;i++){
+			    	house = (h[i]*45/Math.atan(1));
+			    	dataRadix["cusps"][i] = house;
+			    	SendDataHouses[i] = house;
+			    }
+			    
+		      
+			    //ubt
+			    v = arrayData[0][6];
+			    var ubt = Math.floor(v/Math.abs(v));
+			    //ubt = 1;
+			    //if(v < 0){ubt = -1;}
+			    
+			    var RawRadix = new Array();
+			    
+			    SendData[13] = dataRadix["cusps"][0];
+			    SendData[14] = dataRadix["cusps"][9];		    	
+			    	
+			    
+			    v=arrayData[10][0];;
+			    dataRadix["planets"]["Chiron"] = [v];
+			    RawRadix[10] = v;
+			    
+			    
+			    v=arrayData[0][0];
+			    dataRadix["planets"]["Sun"] = [v];
+			    RawRadix[0] = v;
+			    SendData[0] = v;
+			    
+			    v=arrayData[1][0];
+			    dataRadix["planets"]["Moon"] = [v];
+			    RawRadix[1] = v;
+			    SendData[1] = v;
+			    
+			    v=arrayData[2][0];
+			    dataRadix["planets"]["Mercury"] = [v];
+			    RawRadix[2] = v;
+			    SendData[2] = v;
+			    
+			    v=arrayData[3][0];
+			    dataRadix["planets"]["Venus"] = [v];
+			    RawRadix[3] = v;
+			    SendData[3] = v;
+			    
+			    v=arrayData[4][0];
+			    dataRadix["planets"]["Mars"] = [v];
+			    RawRadix[4] = v;
+			    SendData[4] = v;
+			    
+			    v=arrayData[5][0];
+			    dataRadix["planets"]["Jupiter"] = [v];
+			    RawRadix[5] = v;
+			    SendData[5] = v;
+			    
+			    v=arrayData[6][0];
+			    dataRadix["planets"]["Saturn"] = [v];
+			    RawRadix[6] = v;
+			    SendData[6] = v;
+			    
+			    v=arrayData[7][0];
+			    dataRadix["planets"]["Uranus"] = [v];
+			    RawRadix[7] = v;
+			    SendData[7] = v;
+			    
+			    v=arrayData[8][0];
+			    dataRadix["planets"]["Neptune"] = [v]; //, 0.2, ['R', 'D']];
+			    RawRadix[8] = v;
+			    SendData[8] = v;
+			    
+			    v=arrayData[9][0];
+			    dataRadix["planets"]["Pluto"] = [v];
+			    RawRadix[9] = v;
+			    SendData[9] = v;
+			    
+			    v=fixto360(nodes[0]);
+			    dataRadix["planets"]["NNode"] = [v];
+			    RawRadix[10] = v;
+			    SendData[11] = v;
+			    
+			    
+			    v=fixto360(nodes[0]+180);
+			    if(v > 360){v -= 360;}
+			    if(v < 0){v += 360;}
+			    dataRadix["planets"]["SNode"] = [v];
+			    RawRadix[11] = v;
+			    
+			    
+			    v=fixto360(nodes[2]);
+			    dataRadix["planets"]["Lilith"] = [v];
+			    RawRadix[12] = v;
+			    SendData[10] = v;
+			    
+			    
+			    ASCL = fixto360(h[0]*45/Math.atan(1));
+
+			    RawRadix[13] = ASCL;
+			    
+			    MOONL = arrayData[1][0];
+			    SUNL = arrayData[0][0];
+			    SUNALT = arrayData[0][6]; //diurnal??
+ 
+			    if (SUNALT > 0)
+          {
+            POF = Mod360(ASCL + MOONL - SUNL); //Parte da Fortuna
+			    } else {
+			    	POF = Mod360(ASCL - MOONL + SUNL); //Parte da Fortuna
+			    }
+			    v=fixto360(POF);
+			    dataRadix["planets"]["PFortunae"] = [v];
+			    RawRadix[14] = v;
+			    SendData[12] = v;
+
+
+/* Transits data */
+var today = new Date();
+yy = today.getUTCFullYear();
+m = today.getUTCMonth() + 1;
+dd = today.getUTCDate();
+hh = today.getUTCHours();
+mm =today.getUTCMinutes();
+ss = 0;
+var date = {year: yy, month: m, day: dd, hours: hh, minutes: mm, seconds: 0, offset: off};
+$const.tlong = longitude; // longitude
+$const.glat = latitude; // latitude
+$processor.init ();
+var nbody = new Array('sun','moon','mercury','venus','mars','jupiter','saturn','uranus','neptune','pluto','chiron');
+var arrayData = Array2D(11, 7);
+for(i=0;i<11;i++){
+var body = $moshier.body[nbody[i]];
+$processor.calc (date, body);
+arrayData[i][0] = fixto360($const.body.position.apparentLongitude+ay);
+arrayData[i][1] = $const.body.position.apparentLatitude;
+arrayData[i][2] = $const.body.position.apparent.dRA * 180/Math.PI/15;
+arrayData[i][3] = $const.body.position.apparent.dDec * 180/Math.PI;
+arrayData[i][4] = $const.body.position.geocentricDistance;
+arrayData[i][5] = $const.body.position.altaz.topocentric.azimuth;
+arrayData[i][6] = $const.body.position.altaz.topocentric.altitude;
+out = nbody[i] + ": ";
+for(i1=0;i1<7;i1++){
+out = out + arrayData[i][i1] + " ";
+}
+}
+var nodes = new Array();
+nodes = MoonNode(date.julian);
+nodes[0] += ay;
+nodes[1] += ay;
+nodes[2] += ay;
+
+jd=date.julian;
+var h_t = new Array();
+h_t = CalculateHouses(jd,longitude,latitude,h_sys);
+for(i=0;i<12;i++){
+h_t[i] += ay*(Math.PI/180);
+if(h_t[i] < 0){h_t[i] += 2*Math.PI;}
+//h_t[i] = fixtoRAD(h_t[i]);
+}
+
+var dataTransit = {
+			  	"planets":{"PFortunae":[36]},
+			  	"cusps":[]			
+			    };
+			    
+			    for(i=0;i<12;i++){
+			    	house = fixto360(h_t[i]*45/Math.atan(1));
+			    	dataTransit["cusps"][i] = house;
+			    }
+			    
+			    var RawTransit = new Array();
+			    	
+			    
+			    v=arrayData[10][0];;
+			    dataTransit["planets"]["Chiron"] = [v];
+			    RawTransit[10] = v;
+			    
+			    
+			    v=arrayData[0][0];
+			    dataTransit["planets"]["Sun"] = [v];
+			    RawTransit[0] = v;
+			    
+			    v=arrayData[1][0];
+			    dataTransit["planets"]["Moon"] = [v];
+			    RawTransit[1] = v;
+			    
+			    v=arrayData[2][0];
+			    dataTransit["planets"]["Mercury"] = [v];
+			    RawTransit[2] = v;
+			    
+			    v=arrayData[3][0];
+			    dataTransit["planets"]["Venus"] = [v];
+			    RawTransit[3] = v;
+			    
+			    v=arrayData[4][0];
+			    dataTransit["planets"]["Mars"] = [v];
+			    RawTransit[4] = v;
+			    
+			    v=arrayData[5][0];
+			    dataTransit["planets"]["Jupiter"] = [v];
+			    RawTransit[5] = v;
+			    
+			    v=arrayData[6][0];
+			    dataTransit["planets"]["Saturn"] = [v];
+			    RawTransit[6] = v;
+			    
+			    v=arrayData[7][0];
+			    dataTransit["planets"]["Uranus"] = [v];
+			    RawTransit[7] = v;
+			    
+			    v=arrayData[8][0];
+			    dataTransit["planets"]["Neptune"] = [v]; //, 0.2, ['R', 'D']];
+			    RawTransit[8] = v;
+			    
+			    v=arrayData[9][0];
+			    dataTransit["planets"]["Pluto"] = [v];
+			    RawTransit[9] = v;
+			    
+			    v=fixto360(nodes[0]);
+			    dataTransit["planets"]["NNode"] = [v];
+			    RawTransit[10] = v;
+			    
+			    
+			    v=fixto360(nodes[0]+180);
+			    if(v > 360){v -= 360;}
+			    dataTransit["planets"]["SNode"] = [v];
+			    RawTransit[11] = v;
+			    
+			    
+			    v=fixto360(nodes[2]);
+			    dataTransit["planets"]["Lilith"] = [v];
+			    RawTransit[12] = v;
+			    
+			    
+			    ASCL = fixto360(h_t[0]*45/Math.atan(1));
+
+			    RawTransit[13] = ASCL;
+			    
+			    MOONL = arrayData[1][0];
+			    SUNL = arrayData[0][0];
+			    SUNALT = arrayData[0][6]; //diurnal??
+ 
+			    if (SUNALT > 0)
+          {
+            POF = Mod360(ASCL + MOONL - SUNL); //Parte da Fortuna
+			    } else {
+			    	POF = Mod360(ASCL - MOONL + SUNL); //Parte da Fortuna
+			    }
+			    v=fixto360(POF);
+			    dataTransit["planets"]["PFortunae"] = [v];
+			    RawTransit[14] = v;
+			    
+
+/* End Transit Data */
+do_chart(dataRadix,dataTransit);
+
+
+
+/* Table DATA */
+PNames = new Array('Sun','Moon','Mercury','Venus','Mars','Jupiter','Saturn','Uranus','Neptune','Pluto','Asc.node','Desc. node','Lilith','Ascendant','Pars Fortuna');
+var out = document.getElementById('myData');
+out.innerHTML = "";
+
+tout = "<p><table style='margin: 0px auto;border: 1px solid grey;' cellpadding=6>";
+var tdc = "<td style='border: none;font-family: Merriweather;font-size: 12px;width:130px;' bgcolor='#ffffff'>";
+tout += "<tr>" + tdc + "<b>Planet/Point</b></td>" + tdc + "<b>Radix Long.</b></td>" + tdc + "<b>Transit Long.</b></td></tr>";
+for(i=0;i<15;i++){
+tout += "<tr>" + tdc + PNames[i] + "</td>" + tdc + RedAng(RawRadix[i]) + " [" + house_position_rad(RawRadix[i]*Math.PI/180,h) + "]</td>" + tdc + RedAng(RawTransit[i]) + " [" + house_position_rad(RawTransit[i]*Math.PI/180,h_t) + "]</td></tr>";
+}
+tout += "<table></p>";
+
+tout += "<p><table style='margin: 0px auto;border: 1px solid grey;' cellpadding=6>";
+tout += "<tr>" + tdc + "<b>House</b></td>" + tdc + "<b>Radix Long.</b></td>" + tdc + "<b>Transit Long.</b></td></tr>";
+for(i=0;i<12;i++){
+tout += "<tr>" + tdc + (i+1) + "</td>" + tdc + RedAng(h[i]*45/Math.atan(1)) + "</td>" + tdc + RedAng(h_t[i]*45/Math.atan(1)) + "</td></tr>";
+}
+tout += "</table></p>";
+out.innerHTML += tout;
+
+var pars = [];
+ASCL = h[0]*45/Math.atan(1);
+
+SUNL = RawRadix[0];
+MOONL = RawRadix[1];
+MARL = RawRadix[4];
+JUPL = RawRadix[5];
+SATL = RawRadix[6];
+SANL = SAN_long;
+
+var myP = document.getElementById('myPars');
+myP.innerHTML = "";
+var myPNames = ["Pars Fortun&aelig;","Pars Futurorum","Pars Veneris","Pars Mercurii","Pars Saturni","Pars Iovis","Pars Martis","Pars Hyleg"];
+pars = Pars(ubt,ASCL,SUNL,MOONL,MARL,JUPL,SATL,SANL);
+p_out = "<table style='margin: 0px auto;border: 0px solid grey;width: 300px;' cellpadding=6>";
+p_out += "<tr><td colspan=2 style='text-align: center;font-size: 12px;font-family: Merriweather;' bgcolor='#ffffff'>" + "<b>Arabic Parts</b></td></tr>";
+for(i=0;i<8;i++){
+p_out += "<tr>" + tdc + myPNames[i] + "</td>" + tdc + RedAng(pars[i]) + "</td></tr>";
+}
+p_out += "</table>";
+myP.innerHTML += p_out;
+
+/* RULERSHIPS */
+var myD = document.getElementById('myDigs');
+myD.innerHTML = "";
+dig_out = "<table style='margin: 0px auto;border: 0px solid grey;width: 300px;' cellpadding=6>";
+dig_out += "<tr><td style='text-align: center;font-size: 12px;font-family: Merriweather;' bgcolor='#ffffff'>" + "<b>Dignities</b></td></tr><tr>" + tdc;
+var dig_txt = "";
+var dig_value = [];
+for(i=0;i<12;i++){
+dig_value[i] = Dignity(i,RawRadix[i],ubt);
+}
+var p_rulers = ["Rulership","Exaltation","Detriment","Fall"];
+var dignities_cat = ['Rulership','Triplicity','Terms','Face'];
+for(i=0;i<12;i++){
+	for(j=0;j<4;j++){
+		dv = dig_value[i][j];
+		if(dv >= 0){
+			if(j==0){
+				dig_txt += "<b>" + PNames[i] + ":</b> " + p_rulers[dv] + "<br>";
+			} else {
+			  dig_txt += "<b>" + PNames[i] + ":</b> " + dignities_cat[j] + "<br>";
+			}			
+		}
+	}
+}
+dig_out += dig_txt + "</td></tr></table>";
+if(dig_txt != ""){
+myD.innerHTML += dig_out;
+}
+
+/* ELEMENTS */
+var myElem = document.getElementById('myElements');
+myElem.innerHTML = "";
+e_out = "<table style='margin: 0px auto;border: 0px solid grey;width: 300px;' cellpadding=6>";
+e_out += "<tr><td style='text-align: center;font-size: 12px;font-family: Merriweather;' bgcolor='#ffffff'>" + "<b>Elements</b></td></tr><tr>" + tdc;
+var e_txt = "";
+var e1_value = ["","","","","","","","","","","","",""];
+var e2_value = ["","","","","","","","","","","","",""];
+
+var elements_1 = ["Fire","Earth","Air","Water"];
+var elements_2 = ["Cardinal","Fixed","Mutable"];
+
+for(i=0;i<10;i++){
+sgn = Math.floor(RawRadix[i]/30);
+if(sgn < 0){sgn += 12;}
+elem = sgn % 4;
+elem2 = sgn % 3;
+e1_value[elem] += PNames[i] + " ";
+e2_value[elem2] += PNames[i] + " ";
+}
+for(i=0;i<4;i++){
+	e_txt += "<b>" + elements_1[i] + ":</b> " + e1_value[i] + "<br>";
+}
+e_txt += "<br><center><b>Qualities</b></center><br>";
+for(i=0;i<3;i++){
+	e_txt += "<b>" + elements_2[i] + ":</b> " + e2_value[i] + "<br>";
+}
+e_out += e_txt + "<br></td></tr></table>";
+if(e_txt != ""){
+myElem.innerHTML += e_out;
+}
+/* END ELEMENTS */
+
+/* ------- VEDIC -------------- */
+var vedic = [];
+vedic_moon = fixto360(RawRadix[1] + ay_default);
+vedic_sun = fixto360(RawRadix[0] + ay_default);
+vedic_asc = fixto360(h[0]*45/Math.atan(1) + ay_default);
+vedic_mc = fixto360(h[9]*45/Math.atan(1) + ay_default);
+
+vedic = vedic_chart(vedic_moon,vedic_sun);
+var out = document.getElementById('myVedic');
+
+var output = "<table style='width: 700px;margin: 0px auto'><tr><td colspan=2>";
+output += "<font face=Merriweather><h2>Vedic Chart Information:</h2><br><b>Pada:</b> " + vedic[0] + "<br>";
+output += "<b>Yoga:</b> " + vedic[1] + "<br>";
+output += "<b>Karana:</b> " + vedic[2] + "<br>";
+output += "<b>Thiti:</b> " +  vedic[3] + "<br>";
+output += "<b>Janma Nakshatram:</b> " + " " + vedic[4] + "<br>";
+
+var vhouses = [];
+vhouses = bhava(vedic_asc,vedic_mc);
+output += "<br><h3>Planets position:</h3>";
+
+for(i=0;i<14;i++){
+if(i != 7 && i !=8 && i!=9){
+output += "<b>" + PNames[i] + " - </b>Rasi: " + Convert_Longitude_Hindu_Rasi(RawRadix[i]+ay_default) + "; Nakshatra: " + Convert_Longitude_Hindu(RawRadix[i]+ay_default);
+if(i<13){
+	vedic_planet = fixto360(RawRadix[i] + ay_default); 
+	//output += " in House " + bhava_pos(vedic_planet,vhouses[0]) + " / " + bhava_pos(vedic_planet,vhouses[1]) + " ( Madhya / Sandhi )" + "<br>";
+	output += "; House: " + bhava_pos(vedic_planet,vhouses[1]) + "<br>";
+}
+}
+}
+output += "<br><br>";
+
+/* ------------------- DASAS --------------------------- */
+yy = eval(document.getElementById("year").value);
+mes = eval(document.getElementById("month").value);
+dd = eval(document.getElementById("day").value);
+h = eval(document.getElementById("hour").value);
+m = eval(document.getElementById("minute").value);
+s = 0;
+
+jd_natal = cal_to_jd( vera, yy, mes, dd, h, m, 0 );
+res1 = calc_vimsottari_dasa(false,vedic_moon,yy,mes,dd,h,m,jd_natal);
+var res = res1.split("|");
+tdc = "<td style='border: none;font-family: Merriweather;font-size: 12px;width:145px;' bgcolor='#ffffff'>";
+var dasa = "<h3>Dasas:</h3><b>Birth Dasa:</b> " + res[0] + " ( begun in " + res[2] + " )"; 
+dasa += "<br><b>Current Dasa:</b> " + res[1] + " ( begun in " + res[3] + " )<br><br>";
+output += dasa;
+
+output += "</td></tr></table>";
+out.innerHTML = output;	
+/* End */
+
+
+            reports = 0;
+            /* Reports */
+            if(reports > 1){
+            $.ajax({
+            data: {'user': 'kepler', 'data_pos': SendData,'data_pos_h': SendDataHouses,'ubt': ubt},
+            type: 'POST',
+            dataType: 'json',
+            /* url: '<? echo plugins_url('Tetrabyblos') ?>/natal_report.php',  */
+            url: 'natal_report.php',
+            success: function($answer) {
+                //$('#myDiv').append($answer.html);
+                document.getElementById('myReports').innerHTML += $answer.html;
+                }
+            });
+            }
+            /* End Reports */
+	
+}
+
+function RedAng (x){
+  signs = new Array("Aries","Taurus","Gemini","Cancer","Leo","Virgo","Libra","Scorpio","Sagittarius","Capricorn","Aquarius","Pisces")
+	if(x < 0){x += 360.0;}
+	//x = fixto360(x);
+	signo = Math.floor(x/30.0);
+	x -= 30*signo;
+	x = Math.floor(x*100)/100;
+	x = DMS(x);
+	return x + " " + signs[signo];
+}
+
+function Array2D(x, y)
+{
+    var array2D = new Array(x);
+
+    for(var i = 0; i < array2D.length; i++)
+    {
+        array2D[i] = new Array(y);
+    }
+
+    return array2D;
+}
+
+<!-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+// convert calendar to Julian date
+//-----------------------------------------------------------------------------
+function cal_to_jd( era, y, m, d, h, mn, s )
+{
+	var jy, ja, jm;			//scratch
+
+	if( y == 0 ) {
+		alert("There's no zero year!");
+        return "invalid";
+    }
+    if( y == 1582 && m == 10 && d > 4 && d < 15 && era == "CE") {
+		alert("Dates between 5 and 14 October 1582 AD do not exist in the gregorian system!");
+        return "invalid";
+    }
+
+//	if( y < 0 )  ++y;
+  
+  var jd;
+  var u, u0, u1, u2;
+  var temp;
+  
+  u2=0;
+
+  temp = y + m/100 + d/10000;
+
+  if( era == "BCE" ) {
+  y = -y + 1;
+  temp = -temp+1;
+  }
+    
+  u = y;
+  if (m < 3) {
+  u -=1;
+  }
+  u0 = u + 4712.0;
+  u1 = m + 1.0;
+  if (u1 < 4) {
+  u1 += 12.0;
+  }
+  jd = Math.floor(u0*365.25) + Math.floor(30.6*u1+0.000001) + d + h/24.0 + mn/24.0/60 + s/24.0/3600 - 63.5;
+  
+  if (temp >= 1582.1015) {
+    u2 = Math.floor(Math.abs(u) / 100) - Math.floor(Math.abs(u) / 400);
+    if (u < 0.0) u2 = -u2;
+    jd += - u2 + 2;            
+    if ((u < 0.0) && (u/100 == Math.floor(u/100)) && (u/400 != Math.floor(u/400))) jd -=1;
+  }
+  
+  return jd; //Math.floor(jd*100000+0.5)/100000;
+}
+
+//-----------------------------------------------------------------------------
+// convert Julian date to calendar date
+//-----------------------------------------------------------------------------
+function jd_to_cal( jd, form )
+{
+
+  var jd0, u0, u1, u2, u3, u4, jyear, jmon, jday, hr, mn, sc, hrfrac, mnfrac;
+  u0=0;
+  u1=0;
+  u2=0;
+  u3=0;
+  u4=0;
+  
+  jd0 = eval(jd);
+   
+  u0 =  jd0 + 32082.5;
+  //alert(u0);
+  if (jd0 > 2299160) {
+    u1 = u0 + Math.floor (u0/36525.0) - Math.floor (u0/146100.0) - 38.0;
+    if (jd0 >= 1830691.5) u1 +=1;
+    u0 = u0 + Math.floor (u1/36525.0) - Math.floor (u1/146100.0) - 38.0;
+  }
+  
+  u2 = Math.floor (u0 + 123.0);
+  u3 = Math.floor ( (u2 - 122.2) / 365.25);
+  u4 = Math.floor ( (u2 - Math.floor (365.25 * u3) ) / 30.6001);
+  jmon = (u4 - 1.0);
+  if (jmon > 12) jmon -= 12;
+  jday = (u2 - Math.floor (365.25 * u3) - Math.floor (30.6001 * u4));
+  jyear = (u3 + Math.floor ( (u4 - 2.0) / 12.0) - 4800);
+  hrfrac = (jd0 - Math.floor (jd0 + 0.5) + 0.5) * 24.0;
+  
+  hr = Math.floor(hrfrac);
+  mnfrac = (hrfrac - hr)*60;
+  mn = Math.floor(mnfrac);
+  sc = Math.floor((mnfrac - mn)*60 + 0.5);
+  
+  if (sc == 60){
+  sc=0;
+  mn += 1;
+  }
+  if (mn == 60){
+  mn=0;
+  hr += 1;
+  }
+    
+    if( jyear <= 0 ) {
+     	jyear = -jyear + 1;
+        form.era[1].checked = true;
+    } else {
+        form.era[0].checked = true;
+    }
+
+    form.year.value        = jyear;
+    form.month[jmon-1].selected = true;
+    form.day[jday-1].selected   = jday;
+    form.hour.value        = hr;
+    form.minute.value      = mn;
+    form.second.value      = sc;
+}
+</script>
+
+        <script type="text/javascript"> 
+        
+        	/*
+        	var data = {
+			  	"planets":{"Lilith":[18], "Chiron":[18], "Pluto":[63], "Neptune":[110, 0.2, ['R', 'D']], "Uranus":[128], "Saturn":[156], "Jupiter":[192], "Mars":[210], "Moon":[268], "Sun":[281], "Mercury":[312], "Venus":[330], "NNode":[2], "SNode":[182], "PFortunae":[36]},
+			  	"cusps":[296, 350, 30, 56, 75, 94, 116, 170, 210, 236, 255, 274]			
+			    };
+			    */
+			    /*
+			    var dataTransit = {
+		    		"planets":{"Moon":[60.739220451080115],"Venus":[305.6996431634707],"Jupiter":[198.6565699576221],"NNode":[157.25592636170012],"Mars":[324.84013049518734],"Lilith":[232.88904207991555],"Saturn":[259.1015412368795, 0.2, ['R']],"Chiron":[350.7285587924208],"Uranus":[20.678747795787075],"Sun":[260.94912160755536],"Mercury":[281.5699804920016],"Neptune":[339.3848859932604],"Pluto":[286.29683069280685]},
+		    		"cusps":[296, 350, 30, 56, 75, 94, 116, 170, 210, 236, 255, 274]		    				    	
+		      };
+		      */
+		      
+		      
+		      /*
+		      var data = {
+			  	"planets":{"Lilith":[18],"Neptune":[110, 0.2, ['R', 'D']], "Uranus":[128], "Saturn":[156], "Jupiter":[192], "Mars":[210], "Moon":[268], "Sun":[281], "Mercury":[312], "Venus":[330], "NNode":[2], "SNode":[182], "PFortunae":[36]},
+			  	"cusps":[296, 350, 30, 56, 75, 94, 116, 170, 210, 236, 255, 274]			
+			    };
+			    v=63;
+			    v1 = 18;
+			    data["planets"]["Pluto"] = [v];
+			    data["planets"]["Chiron"] = [v1];
+		      */
+												      
+        function do_chart (dataRadix,dataTransit) {            	     
+				//var radix = new astrology.Chart('paper', 600, 600,{MARGIN:80, SYMBOL_SCALE:1.0}).radix( data );
+				//var radix = new astrology.Chart('paper', 600, 600,{MARGIN:80, SYMBOL_SCALE:0.9, STROKE_ONLY:true}).radix( data );
+				//radix.aspects();
+				
+								
+				// Aspect calculation
+				// default is planet to planet, but it is possible add some important points:				
+				//radix.addPointsOfInterest( {"As":[data.cusps[0]],"Ic":[data.cusps[3]],"Ds":[data.cusps[6]],"Mc":[data.cusps[9]]});	
+				//radix.addPointsOfInterest( {"As":[data.cusps[0]],"Mc":[data.cusps[9]]});							
+				
+				
+				/* Transits */
+				/* var transit = radix.transit( dataTransit );
+				transit.aspects(); 													
+				*/
+				chart = new astrology.Chart( 'paper', 720, 720, {MARGIN:100, SYMBOL_SCALE:0.7});
+        radix = chart.radix( dataRadix );
+				transit = radix.transit( dataTransit );
+				transit.aspects();
+				
+				
+        
+				c = document.getElementById("paper").children;
+				s = c[0].innerHTML;				
+				canvg('canvas', s); //canvas has the image
+				
+				var x = document.getElementById("canvas");
+        x.style.display = "block";
+				
+        var aspects_letters = ['q','i','t','r','e','o','p'];
+        var aspects_color = ['transparent','#004d00','#004d00','#FF0000','#004d00','#FF0000','#0000FF'];
+        
+        //return false;
+       
+        var planets_letter = {"Lilith":"`", "Chiron":"M", "Pluto":"P", "Neptune":"O", "Uranus":"I", "Saturn":"U", "Jupiter":"Y", "Mars":"T", "Moon":"W", "Sun":"Q", "Mercury":"E", "Venus":"R", "NNode":"{", "SNode":"}", "PFortunae":"<"};
+        
+        
+        
+          
+				var canvas = document.getElementById("canvas-grid");
+        var ctx = canvas.getContext("2d");
+        ctx.clearRect(0,0,600,600);
+        
+        //GRID
+        var l = 30;
+        var n = 14;
+        x = 90; /* +30 pq n < 15*/
+        y = 20;
+        var allasp = "";
+       
+       
+        //var planets_numbers = {"Sun":"Q","Moon":"W","Mercury":"E","Venus":"R", "Mars":"T","Jupiter":"S","Saturn":"U","Uranus":"I","Neptune":"O","Pluto":"P","Lilith":"`", "NNode":"{","PFortunae":"<","Asc":"Z","Mc":"X"};
+        var planets_names = ["Sun","Moon","Mercury","Venus","Mars","Jupiter","Saturn","Uranus","Neptune","Pluto","Lilith", "NNode","PFortunae","Asc","Mc"];
+        var planets_names_complete = ["Sun","Moon","Mercury","Venus","Mars","Jupiter","Saturn","Uranus","Neptune","Pluto","Lilith", "Rahu","Pars Fortuna","Asc.","MC"];
+        var planets_numbers = ["Q","W","E","R","T","Y","U","I","O","P","`","{","<","Z","X"];
+        var aspects_names = ['conjunction','semi-sextil','sextil','quadrature','trine','quincunx','opposition'];
+        var aspects_values = [0,30,60,90,120,150,180];
+        var asp_txt = "<table style='margin: 0px auto;border: 1px solid grey;width: 300px;' cellpadding=6>";
+        asp_txt += "<tr><td style='border: none;font-family: Merriweather;font-size: 12px;text-align:center;' bgcolor='#ffffff'><h3>Natal Aspects</h3></td></tr>";
+        
+        v = dataRadix["cusps"][0];
+			  dataRadix["planets"]["Asc"] = [v];
+			  v = dataRadix["cusps"][10];
+			  dataRadix["planets"]["Mc"] = [v];
+        
+        //for(j=0;j<=n-1;j++){ //n
+        for(j=0;j<=n;j++){ //n
+        	ctx.rect(x,y+j*l,l,l);
+				  ctx.stroke();
+				  if(j>0){
+				  ctx.font = '14pt HamburgSymbols';
+          ctx.fillText(planets_numbers[j-1], x + 10 - 3, 40+j*l + 2);
+          }
+        
+        //for(i=j+1;i<=n;i++){
+        //for(i=1;i<=n;i++){
+        for(i=1;i<=n-j;i++){
+       
+        ctx.rect(x+i*l,y+j*l,l,l);
+				ctx.stroke();
+				
+				if(j == 0){
+					ctx.font = '14pt HamburgSymbols';
+          //ctx.fillText(planets_numbers[i-1], x + 10 + i*l - 3,40+j*l + 2);
+          ctx.fillText(planets_numbers[n-i], x + 10 + i*l - 3,40+j*l + 2);
+          //} 
+        
+        } else {
+        	//ASPECTS - ver repetição
+        	
+        	if(i != j && (i+j !=29)){
+        	//p1 = planets_names[i-1];
+        	p1 = planets_names[n-i];
+        	p2 = planets_names[j-1];
+        	var pl1 = dataRadix.planets[p1];
+        	var pl2 = dataRadix.planets[p2];
+        	
+        	if(Array.isArray(pl1)){
+        		var long1 = pl1[0];
+        	} else {
+        		var long1 = pl1;
+        	}
+        	
+        	if(Array.isArray(pl2)){
+        		var long2 = pl2[0];
+        	} else {
+        		var long2 = pl2;
+        	}
+        	
+        	asp = HAspect(long1,long2);
+        	if(asp >= 0){
+        		ctx.font = '14pt HamburgSymbols';
+        		ctx.fillText(aspects_letters[asp], x + 10 + i*l - 3,40+j*l + 2);
+        		
+        		difv = Math.abs( pl1 - pl2);
+        		if( difv > 180){
+			         difv = 360 - difv;
+            }
+            difv = Math.abs(difv - aspects_values[asp]);
+            difv = Math.floor(difv*10)/10;
+        		asp_txt += "<tr><td style='border: none;font-family: Merriweather;font-size: 12px;' bgcolor='#ffffff'>" + planets_names_complete[j-1] + " " + aspects_names[asp] + " " + planets_names_complete[n-i] + " ( " + difv + "º )</td></tr>";
+        		
+        	}
+        
+          }	
+        	
+        }
+				
+				
+			  }
+			  }
+
+			  //ctx.rect(x+n*l,y+n*l,l,l);
+				//ctx.stroke();
+				
+				//var outimg = document.getElementById('signum');
+				//ctx.drawImage(outimg,100,100);
+				
+				var img = new Image();
+        img.onload = function () {
+        ctx.drawImage(img, 350, 250);
+        }
+        
+        var sun_lon = dataRadix.planets["Sun"];
+        if(sun_lon < 0){sun_lon += 360;}
+        var sig = Math.floor(sun_lon/30);
+        if(sig < 0){sig += 12;}
+        var imgsrc = "signosnum/" + sig + ".jpg";
+        img.src = imgsrc;
+				
+				
+				ctx.rect(x,y+n*l,l,l);
+				ctx.stroke();
+				
+        asp_txt += "</table>";
+        var out = document.getElementById('myAspects');
+        //alert(asp_txt);
+        out.innerHTML = asp_txt;
+				//END GRID
+
+															
+			};
+			
+
+			
+		function HAspect(pp1, pp2){
+		/*
+		var aspect = { 
+		"conjunction":{"degree":0, "orbit":10, "color":"transparent"},
+		"sextile":{"degree":60, "orbit":8, "color":"#004d00"}, 
+		"square":{"degree":90, "orbit":8, "color":"#FF0000"}, 
+		"trine":{"degree":120, "orbit":8, "color":"#80ff80"},
+		"opposition":{"degree":180, "orbit":10, "color":"#0000FF"}
+		};
+		*/
+		
+		var aspects = [0,30,60,90,120,150,180];
+		var orbs = [10,8,8,8,8,8,10];	
+			
+			
+		var result = -1;
+		
+		var dif = Math.abs( pp1 - pp2 );
+		
+		if( dif > 180){
+			dif = 360 - dif;
+		}
+		
+		//aspects[aspect]
+		for (i1=0;i1<7;i1++) {
+
+		var orbe = Math.abs(dif - aspects[i1]);
+		
+		if(orbe <= orbs[i1]){
+		//if(aspects[i1]+orbs[i1]-dif >= 0){
+			//alert(pp1 + " " + pp2 + " " + dif + " " +orbe);											
+			result = i1;
+			return result;
+		}
+	  
+	  }
+	  						
+		return result;	
+	  }
+	  
+	  function SHDiv() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+    } 
+	  
+		</script>	
+
+
+
+
+
+
+</body>
+
+</html>

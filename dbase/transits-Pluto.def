@@ -1,0 +1,4 @@
+Transit,LIST,1,Pluto - Ascendant:Pluto - Sun:Pluto - Moon:Pluto - Mercury:Pluto - Venus:Pluto - Mars:Pluto - Jupiter:Pluto - Saturn:Pluto - Uranus:Pluto - Neptune:Pluto - Pluto:Pluto - Midheaven
+Aspect,LIST,1,conjunction:opposition:trine:square:sextile
+Active,LOGICAL,1,Y:N
+Comments,TEXT,50:2

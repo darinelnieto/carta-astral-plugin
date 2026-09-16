@@ -1,0 +1,4 @@
+Body,LIST,1,Sun:Moon:Mercury:Venus:Mars:Jupiter:Saturn:Uranus:Neptune:Pluto:Ascendant:Ascending Node:Lilith:Pars Fortunae:Chiron
+Sign,LIST,1,ARIES:TAURUS:GEMINI:CANCER:LEO:VIRGO:LIBRA:SCORPIO:SAGITTARIUS:CAPRICORN:AQUARIUS:PISCIS
+Active,LOGICAL,1,Y:N
+Comments,TEXT,50:2

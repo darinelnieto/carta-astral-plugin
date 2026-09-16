@@ -1,0 +1,4 @@
+Transit,LIST,1,Venus - Ascendant:Venus - Sun:Venus - Moon:Venus - Mercury:Venus - Venus:Venus - Mars:Venus - Jupiter:Venus - Saturn:Venus - Uranus:Venus - Neptune:Venus - Pluto:Venus - Midheaven
+Aspect,LIST,1,conjunction:opposition:trine:square:sextile
+Active,LOGICAL,1,Y:N
+Comments,TEXT,50:2

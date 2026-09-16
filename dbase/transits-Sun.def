@@ -1,0 +1,4 @@
+Transit,LIST,1,Sun - Ascendant:Sun - Sun:Sun - Moon:Sun - Mercury:Sun - Venus:Sun - Mars:Sun - Jupiter:Sun - Saturn:Sun - Uranus:Sun - Neptune:Sun - Pluto:Sun - Midheaven
+Aspect,LIST,1,conjunction:opposition:trine:square:sextile
+Active,LOGICAL,1,Y:N
+Comments,TEXT,50:2
