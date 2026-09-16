@@ -1,1 +1,3 @@
 Introduction|N|This is an  example of a simple integration of Tetrabyblos Word Press plugin within a page.
+Title|N|
+Title|N|

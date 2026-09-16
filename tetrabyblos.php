@@ -82,7 +82,7 @@ if ( ! function_exists( 'tetrabyblos_get_translation_json' ) ) {
 			'Calculate Transits' => 'Calcular tránsitos',
 			'Chart Results' => 'Resultados de la carta',
 			'Click image to zoom...' => 'Haz clic en la imagen para ampliar...',
-			'Here are some details regarding your birth date.' => 'Aquí tienes algunos detalles sobre tu fecha de nacimiento.',
+			'Here are some details regarding your birth date.' => 'Tu carta astral es el regalo del Universo para conocerte mejor. Cada símbolo representa una parte de ti y de tu energía. Aquí comienza el camino para descubrir quién eres, cómo sientes y hacia dónde vas.',
 			'Advanced options' => 'Opciones avanzadas',
 			'Western - Tropical' => 'Occidental - Tropical',
 			'Sidereal' => 'Sideral',
