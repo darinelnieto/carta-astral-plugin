@@ -82,7 +82,7 @@ if ( ! function_exists( 'tetrabyblos_get_translation_json' ) ) {
 			'Calculate Transits' => 'Calcular tránsitos',
 			'Chart Results' => 'Resultados de la carta',
 			'Click image to zoom...' => 'Haz clic en la imagen para ampliar...',
-			'Here are some details regarding your birth date.' => 'Tu mapa astral es una llave cósmica para conectar profundamente contigo. Cada aspecto revela una faceta única de tu esencia y tu vitalidad. Este es el punto de partida para entender tu naturaleza, tu forma de sentir y tu propósito.',
+			'Here are some details regarding your birth date.' => 'Tu mapa astral es una llave cósmica para conectar profundamente contigo. Cada aspecto revela una faceta única de tu esencia y tu vitalidad. Este es el punto de partida para entender tu naturaleza, tu forma de sentir y tu propósito',
 			'Advanced options' => 'Opciones avanzadas',
 			'Western - Tropical' => 'Occidental - Tropical',
 			'Sidereal' => 'Sideral',
